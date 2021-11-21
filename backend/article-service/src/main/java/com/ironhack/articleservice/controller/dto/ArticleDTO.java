@@ -1,33 +1,33 @@
-package com.ironhack.articleservice.model;
+package com.ironhack.articleservice.controller.dto;
 
 import com.ironhack.articleservice.enums.ArticleSize;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "stock")
-public class StockEntity {
+public class ArticleDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "article_id")
-    private ArticleEntity article;
-
+    private String name;
+    private String category;
+    private String brand;
+    private String description;
+    private String imageUrl;
     @Enumerated(EnumType.STRING)
     private ArticleSize size;
     private short units;
     private BigDecimal price;
+
     private LocalDate creationDate;
     private String userCreation;
     private LocalDate modificationDate;

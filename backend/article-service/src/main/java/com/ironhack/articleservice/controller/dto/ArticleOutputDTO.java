@@ -1,35 +1,26 @@
-package com.ironhack.articleservice.model;
+package com.ironhack.articleservice.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "article")
-public class ArticleEntity {
+public class ArticleOutputDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "category_type")
-    private CategoryEntity category;
-
     private String name;
+    private String category;
     private String brand;
     private String description;
     private String imageUrl;
-
-    @OneToMany(mappedBy = "article")
-    private List<StockEntity> stockList;
+    private List<StockDTO> stockList;
 
     private LocalDate creationDate;
     private String userCreation;

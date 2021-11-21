@@ -47,7 +47,7 @@ CREATE TABLE stock(
     article_id INT UNSIGNED,
     size VARCHAR(3),
     units SMALLINT UNSIGNED,
-    price DECIMAL(5,2),
+    price DECIMAL(7,2),
     creation_date DATE,
     user_creation VARCHAR(255),
     modification_date DATE,

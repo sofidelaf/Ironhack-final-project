@@ -1,0 +1,13 @@
+package com.ironhack.articleservice.controller.interfaces;
+
+import com.ironhack.articleservice.controller.dto.ArticleDTO;
+import com.ironhack.articleservice.controller.dto.ArticleOutputDTO;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface ArticleController {
+
+    ArticleDTO store(ArticleDTO articleDTO);
+    List<ArticleOutputDTO> getAll(Optional<String> category);
+}
