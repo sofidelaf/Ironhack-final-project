@@ -85,6 +85,7 @@ class CategoryControllerImplTest {
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("mountain bike"));
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("SpringBootTest"));
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("road bike"));
+        assertEquals(0, categoryRepository.findById("mountain bike").get().getArticleList().size());
     }
 
     @Test

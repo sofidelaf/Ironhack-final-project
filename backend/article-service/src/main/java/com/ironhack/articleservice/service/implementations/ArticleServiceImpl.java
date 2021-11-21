@@ -2,9 +2,7 @@ package com.ironhack.articleservice.service.implementations;
 
 import com.ironhack.articleservice.controller.dto.ArticleDTO;
 import com.ironhack.articleservice.controller.dto.ArticleOutputDTO;
-import com.ironhack.articleservice.controller.dto.CategoryDTO;
 import com.ironhack.articleservice.controller.dto.StockDTO;
-import com.ironhack.articleservice.enums.ArticleSize;
 import com.ironhack.articleservice.model.ArticleEntity;
 import com.ironhack.articleservice.model.CategoryEntity;
 import com.ironhack.articleservice.model.StockEntity;

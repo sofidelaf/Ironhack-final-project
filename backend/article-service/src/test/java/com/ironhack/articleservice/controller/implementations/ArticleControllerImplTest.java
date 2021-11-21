@@ -2,7 +2,6 @@ package com.ironhack.articleservice.controller.implementations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ironhack.articleservice.controller.dto.ArticleDTO;
-import com.ironhack.articleservice.controller.dto.CategoryDTO;
 import com.ironhack.articleservice.enums.ArticleSize;
 import com.ironhack.articleservice.model.ArticleEntity;
 import com.ironhack.articleservice.model.CategoryEntity;
