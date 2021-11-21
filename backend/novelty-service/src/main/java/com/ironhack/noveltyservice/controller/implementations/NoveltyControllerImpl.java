@@ -1,0 +1,41 @@
+package com.ironhack.noveltyservice.controller.implementations;
+
+import com.ironhack.noveltyservice.controller.dto.NoveltyOutputDTO;
+import com.ironhack.noveltyservice.controller.interfaces.NoveltyController;
+import com.ironhack.noveltyservice.service.interfaces.NoveltyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class NoveltyControllerImpl implements NoveltyController {
+
+    @Autowired
+    private NoveltyService noveltyService;
+
+    @Override
+    @GetMapping("/novelties")
+    @ResponseStatus(HttpStatus.OK)
+    public List<NoveltyOutputDTO> getAll() {
+
+        return noveltyService.getAll();
+    }
+
+    @Override
+    @PostMapping("/novelties")
+    @ResponseStatus(HttpStatus.CREATED)
+    public NoveltyOutputDTO store(@RequestBody int id) {
+
+        return noveltyService.store(id);
+    }
+
+    @Override
+    @DeleteMapping("/novelties/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(name = "id") int id) {
+
+        noveltyService.delete(id);
+    }
+}
