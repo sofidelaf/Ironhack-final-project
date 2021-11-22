@@ -1,5 +1,6 @@
 package com.ironhack.noveltyservice.controller.implementations;
 
+import com.ironhack.noveltyservice.controller.dto.NoveltyInputDTO;
 import com.ironhack.noveltyservice.controller.dto.NoveltyOutputDTO;
 import com.ironhack.noveltyservice.controller.interfaces.NoveltyController;
 import com.ironhack.noveltyservice.service.interfaces.NoveltyService;
@@ -26,9 +27,9 @@ public class NoveltyControllerImpl implements NoveltyController {
     @Override
     @PostMapping("/novelties")
     @ResponseStatus(HttpStatus.CREATED)
-    public NoveltyOutputDTO store(@RequestBody int id) {
+    public NoveltyOutputDTO store(@RequestBody NoveltyInputDTO noveltyInputDTO) {
 
-        return noveltyService.store(id);
+        return noveltyService.store(noveltyInputDTO.getId());
     }
 
     @Override

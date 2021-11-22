@@ -1,10 +1,10 @@
 package com.ironhack.noveltyservice.controller.dto;
 
-import com.ironhack.noveltyservice.enums.StockDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @NoArgsConstructor
@@ -18,5 +18,6 @@ public class NoveltyOutputDTO {
     private String brand;
     private String description;
     private String imageUrl;
+    private BigDecimal price;
     private List<StockDTO> stockList;
 }

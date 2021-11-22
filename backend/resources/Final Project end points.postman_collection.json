@@ -123,6 +123,73 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "create novelty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/novelties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"novelties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete novelty",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/novelties/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"novelties",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All novelties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/novelties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"novelties"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

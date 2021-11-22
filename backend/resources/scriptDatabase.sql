@@ -75,7 +75,7 @@ CREATE TABLE discount(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	article_id INT UNSIGNED,
 	promotion VARCHAR(255),
-    quantity DECIMAL(2,2),
+    quantity DECIMAL(4,2),
     creation_date DATE,
     user_creation VARCHAR(255),
     modification_date DATE,
