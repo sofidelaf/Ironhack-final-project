@@ -58,6 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
         articleEntity.setBrand(articleDTO.getBrand());
         articleEntity.setDescription(articleDTO.getDescription());
         articleEntity.setImageUrl(articleDTO.getImageUrl());
+        articleEntity.setPrice(articleDTO.getPrice());
         articleEntity.setCreationDate(LocalDate.now());
         articleEntity.setUserCreation("");
         articleEntity.setModificationDate(LocalDate.of(1,1,1));
@@ -68,7 +69,6 @@ public class ArticleServiceImpl implements ArticleService {
         stockEntity.setArticle(articleEntity);
         stockEntity.setSize(articleDTO.getSize());
         stockEntity.setUnits(articleDTO.getUnits());
-        stockEntity.setPrice(articleDTO.getPrice());
         stockEntity.setCreationDate(LocalDate.now());
         stockEntity.setUserCreation("");
         stockEntity.setModificationDate(LocalDate.of(1,1,1));
@@ -82,9 +82,9 @@ public class ArticleServiceImpl implements ArticleService {
         outputArticleDTO.setBrand(articleEntity.getBrand());
         outputArticleDTO.setDescription(articleEntity.getDescription());
         outputArticleDTO.setImageUrl(articleEntity.getImageUrl());
+        outputArticleDTO.setPrice(articleEntity.getPrice());
         outputArticleDTO.setSize(stockEntity.getSize());
         outputArticleDTO.setUnits(stockEntity.getUnits());
-        outputArticleDTO.setPrice(stockEntity.getPrice());
         outputArticleDTO.setCreationDate(articleEntity.getCreationDate());
         outputArticleDTO.setUserCreation(articleEntity.getUserCreation());
         outputArticleDTO.setModificationDate(articleEntity.getModificationDate());
@@ -106,6 +106,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleOutputDTO.setBrand(article.getBrand());
             articleOutputDTO.setDescription(article.getDescription());
             articleOutputDTO.setImageUrl(article.getImageUrl());
+            articleOutputDTO.setPrice(article.getPrice());
             articleOutputDTO.setCreationDate(article.getCreationDate());
             articleOutputDTO.setUserCreation(article.getUserCreation());
             articleOutputDTO.setModificationDate(article.getModificationDate());
@@ -115,7 +116,6 @@ public class ArticleServiceImpl implements ArticleService {
                 StockDTO stockDTO = new StockDTO();
                 stockDTO.setSize(stockEntity.getSize());
                 stockDTO.setUnits(stockEntity.getUnits());
-                stockDTO.setPrice(stockEntity.getPrice());
                 stockDTOList.add(stockDTO);
             }
             articleOutputDTO.setStockList(stockDTOList);
@@ -138,6 +138,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleOutputDTO.setBrand(article.getBrand());
             articleOutputDTO.setDescription(article.getDescription());
             articleOutputDTO.setImageUrl(article.getImageUrl());
+            articleOutputDTO.setPrice(article.getPrice());
             articleOutputDTO.setCreationDate(article.getCreationDate());
             articleOutputDTO.setUserCreation(article.getUserCreation());
             articleOutputDTO.setModificationDate(article.getModificationDate());
@@ -147,7 +148,6 @@ public class ArticleServiceImpl implements ArticleService {
                 StockDTO stockDTO = new StockDTO();
                 stockDTO.setSize(stockEntity.getSize());
                 stockDTO.setUnits(stockEntity.getUnits());
-                stockDTO.setPrice(stockEntity.getPrice());
                 stockDTOList.add(stockDTO);
             }
             articleOutputDTO.setStockList(stockDTOList);

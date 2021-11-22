@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ArticleEntity {
     private String brand;
     private String description;
     private String imageUrl;
+    private BigDecimal price;
 
     @OneToMany(mappedBy = "article")
     private List<StockEntity> stockList;

@@ -71,6 +71,7 @@ class ArticleControllerImplTest {
         article.setBrand("Berria");
         article.setDescription("description test");
         article.setImageUrl("url image");
+        article.setPrice(BigDecimal.valueOf(1799));
         article.setCreationDate(LocalDate.now());
         article.setUserCreation("SpringBootTest");
         article.setModificationDate(LocalDate.of(1, 1, 1));
@@ -81,7 +82,6 @@ class ArticleControllerImplTest {
         stock.setArticle(article);
         stock.setSize(ArticleSize.L);
         stock.setUnits((short) 1);
-        stock.setPrice(BigDecimal.valueOf(1799));
         stock.setCreationDate(LocalDate.now());
         stock.setUserCreation("SpringBootTest");
         stock.setModificationDate(LocalDate.of(1, 1, 1));
@@ -105,9 +105,9 @@ class ArticleControllerImplTest {
         articleDTO.setBrand("");
         articleDTO.setDescription("");
         articleDTO.setImageUrl("");
+        articleDTO.setPrice(BigDecimal.ZERO);
         articleDTO.setSize(ArticleSize.NON);
         articleDTO.setUnits((short) 0);
-        articleDTO.setPrice(BigDecimal.ZERO);
 
         String body = objectMapper.writeValueAsString(articleDTO);
         mockMvc.perform(post("/articles")
@@ -191,9 +191,9 @@ class ArticleControllerImplTest {
         articleDTO.setBrand("Orbea");
         articleDTO.setDescription("Testing");
         articleDTO.setImageUrl("url image");
+        articleDTO.setPrice(BigDecimal.valueOf(2990));
         articleDTO.setSize(ArticleSize.L);
         articleDTO.setUnits((short) 1);
-        articleDTO.setPrice(BigDecimal.valueOf(2990));
 
         String body = objectMapper.writeValueAsString(articleDTO);
         mockMvc.perform(post("/articles")
@@ -213,9 +213,9 @@ class ArticleControllerImplTest {
         articleDTO.setBrand("Orbea");
         articleDTO.setDescription("Testing");
         articleDTO.setImageUrl("url image");
+        articleDTO.setPrice(BigDecimal.valueOf(2990));
         articleDTO.setSize(ArticleSize.L);
         articleDTO.setUnits((short) 1);
-        articleDTO.setPrice(BigDecimal.valueOf(2990));
 
         String body = objectMapper.writeValueAsString(articleDTO);
         MvcResult mvcResult = mockMvc.perform(post("/articles")

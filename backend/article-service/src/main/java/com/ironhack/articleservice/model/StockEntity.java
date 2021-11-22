@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -27,7 +26,6 @@ public class StockEntity {
     @Enumerated(EnumType.STRING)
     private ArticleSize size;
     private short units;
-    private BigDecimal price;
     private LocalDate creationDate;
     private String userCreation;
     private LocalDate modificationDate;

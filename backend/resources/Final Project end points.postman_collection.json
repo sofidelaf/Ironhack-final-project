@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"Belador 6\" ,\n    \"category\" : \"road bike\" ,\n    \"brand\" : \"Berria\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"size\" : \"L\" ,\n    \"units\" : \"1\" ,\n    \"price\" : \"99999.00\"\n}",
+					"raw": "{\n    \"name\" : \"Belador 6\" ,\n    \"category\" : \"road bike\" ,\n    \"brand\" : \"Berria\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"price\" : \"99999.00\",\n    \"size\" : \"L\" ,\n    \"units\" : \"1\" \n}",
 					"options": {
 						"raw": {
 							"language": "json"

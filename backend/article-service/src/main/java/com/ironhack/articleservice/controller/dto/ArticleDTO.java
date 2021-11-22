@@ -21,10 +21,10 @@ public class ArticleDTO {
     private String brand;
     private String description;
     private String imageUrl;
+    private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private ArticleSize size;
     private short units;
-    private BigDecimal price;
 
     private LocalDate creationDate;
     private String userCreation;

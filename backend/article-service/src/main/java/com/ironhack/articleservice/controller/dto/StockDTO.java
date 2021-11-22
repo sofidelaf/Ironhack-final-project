@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import java.math.BigDecimal;
 
 @NoArgsConstructor
 @Getter
@@ -17,5 +16,5 @@ public class StockDTO {
     @Enumerated(EnumType.STRING)
     private ArticleSize size;
     private short units;
-    private BigDecimal price;
+
 }
