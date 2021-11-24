@@ -1,16 +1,12 @@
 package com.ironhack.articleservice.model;
 
 import com.ironhack.articleservice.enums.ArticleSize;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "stock")
 public class StockEntity {
@@ -30,4 +26,44 @@ public class StockEntity {
     private String userCreation;
     private LocalDate modificationDate;
     private String userModification;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setArticle(ArticleEntity article) {
+        this.article = article;
+    }
+
+    public ArticleSize getSize() {
+        return size;
+    }
+
+    public void setSize(ArticleSize size) {
+        this.size = size;
+    }
+
+    public short getUnits() {
+        return units;
+    }
+
+    public void setUnits(short units) {
+        this.units = units;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setUserCreation(String userCreation) {
+        this.userCreation = userCreation;
+    }
+
+    public void setModificationDate(LocalDate modificationDate) {
+        this.modificationDate = modificationDate;
+    }
+
+    public void setUserModification(String userModification) {
+        this.userModification = userModification;
+    }
 }

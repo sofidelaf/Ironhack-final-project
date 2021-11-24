@@ -1,14 +1,10 @@
 package com.ironhack.noveltyservice.model;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "stock")
 public class StockEntity {
@@ -24,4 +20,27 @@ public class StockEntity {
     private String size;
     private short units;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setArticle(ArticleEntity article) {
+        this.article = article;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public short getUnits() {
+        return units;
+    }
+
+    public void setUnits(short units) {
+        this.units = units;
+    }
 }

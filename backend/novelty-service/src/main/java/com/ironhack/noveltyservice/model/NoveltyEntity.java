@@ -1,15 +1,11 @@
 package com.ironhack.noveltyservice.model;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "novelty")
 public class NoveltyEntity {
@@ -26,4 +22,32 @@ public class NoveltyEntity {
     private String userCreation;
     private LocalDate modificationDate;
     private String userModification;
+
+    public int getId() {
+        return id;
+    }
+
+    public ArticleEntity getArticle() {
+        return article;
+    }
+
+    public void setArticle(ArticleEntity article) {
+        this.article = article;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setUserCreation(String userCreation) {
+        this.userCreation = userCreation;
+    }
+
+    public void setModificationDate(LocalDate modificationDate) {
+        this.modificationDate = modificationDate;
+    }
+
+    public void setUserModification(String userModification) {
+        this.userModification = userModification;
+    }
 }
