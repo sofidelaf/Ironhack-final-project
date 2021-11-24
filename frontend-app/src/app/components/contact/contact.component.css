@@ -1,0 +1,18 @@
+p {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 1.7rem;
+}
+
+#contactForm {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.thirty-width {
+    width: 30%;
+}
+
+.full-width {
+    width: 50%;
+}

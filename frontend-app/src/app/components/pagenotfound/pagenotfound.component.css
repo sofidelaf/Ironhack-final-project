@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
+    color: red;  
+}

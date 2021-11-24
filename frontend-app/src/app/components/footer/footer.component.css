@@ -1,0 +1,28 @@
+ul {
+    margin: 0;
+    box-sizing: border-box;
+    background-color:gray;
+    display: flex;
+    list-style: none;
+    padding: 5px;
+}
+
+li {
+    margin: 0 3rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: firebrick;
+}
+
+.active {
+    background-color:blue;
+}
+
+#footerNav {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

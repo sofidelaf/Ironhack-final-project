@@ -1,0 +1,35 @@
+<div>
+    <p>Leave a message</p>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" id="contactForm">
+        <div>
+            <mat-form-field appearance="fill" class="thirty-width">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Name..." formControlName="name">
+                <mat-error *ngIf="nameInput.hasError('required') && (nameInput.touched || nameInput.dirty)">
+                    Name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="thirty-width">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput placeholder="Email..." formControlName="email">
+                <mat-error *ngIf="emailInput.invalid && emailInput.touched">
+                    Please enter a valid email
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Text area</mat-label>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"
+                    formControlName="information"></textarea>
+                <mat-error *ngIf="informationInput.invalid && informationInput.touched">
+                    Please enter a text
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Send</button>
+    </form>
+</div>
