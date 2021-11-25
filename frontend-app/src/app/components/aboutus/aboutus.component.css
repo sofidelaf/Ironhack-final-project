@@ -1,0 +1,27 @@
+#principal {
+    margin: 2rem;
+}
+
+#principal h4 {
+    color: grey;
+    font-weight: bold;
+}
+
+#aditional {
+    margin: 2rem;
+    width: 30%;
+    float: left;
+}
+
+#aditional h3 {
+    text-decoration: underline;
+}
+
+.photo {
+    width: 50%;
+    max-width: 600px;
+    height: auto;
+    max-height: 350px;
+    float: right;
+    margin: 0.3rem;
+}

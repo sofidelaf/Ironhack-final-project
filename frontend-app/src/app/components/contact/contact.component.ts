@@ -11,17 +11,20 @@ export class ContactComponent implements OnInit {
   public contactForm: FormGroup;
   public nameInput: FormControl;
   public emailInput: FormControl;
+  public subjectInput: FormControl;
   public informationInput: FormControl;
 
   constructor() {
     
     this.nameInput = new FormControl('', [Validators.required]);
     this.emailInput = new FormControl('', [Validators.required, Validators.email]);
+    this.subjectInput = new FormControl('', [Validators.required]);
     this.informationInput = new FormControl('', [Validators.required]);
-
+  
     this.contactForm = new FormGroup({
       name: this.nameInput,
       email: this.emailInput,
+      subject: this.subjectInput,
       information: this.informationInput
     });
   }
