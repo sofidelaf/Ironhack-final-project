@@ -27,6 +27,16 @@
 		{
 			"name": "create category",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -55,6 +65,16 @@
 		{
 			"name": "create article",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -127,6 +147,16 @@
 		{
 			"name": "create novelty",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -155,6 +185,16 @@
 		{
 			"name": "delete novelty",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
@@ -194,6 +234,16 @@
 		{
 			"name": "create discount",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -222,6 +272,16 @@
 		{
 			"name": "delete discount",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
@@ -253,6 +313,34 @@
 					"port": "8080",
 					"path": [
 						"discounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"admin\" ,\n    \"password\" : \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
 					]
 				}
 			},
