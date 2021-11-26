@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { BikesComponent } from './components/bikes/bikes.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ArticleItemComponent } from './components/article-item/article-item.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,15 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
     PagenotfoundComponent,
     WelcomepageComponent,
     ContactComponent,
-    AboutusComponent
+    AboutusComponent,
+    BikesComponent,
+    ArticleItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
