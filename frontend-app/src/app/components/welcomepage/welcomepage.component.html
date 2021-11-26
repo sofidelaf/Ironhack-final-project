@@ -1,6 +1,16 @@
 <div>
     <h3>NOVELTIES</h3>
+    <div>
+        <div>
+          <app-novelty-item *ngFor="let novelty of noveltyList" [novelty]="novelty"></app-novelty-item>
+        </div>
+    </div>
 </div>
 <div>
     <h3>DISCOUNTS</h3>
+    <div>
+        <div>
+          <app-discount-item *ngFor="let discount of discountList" [discount]="discount"></app-discount-item>
+        </div>
+    </div>
 </div>

@@ -16,6 +16,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { BikesComponent } from './components/bikes/bikes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
+import { NoveltyItemComponent } from './components/novelty-item/novelty-item.component';
+import { DiscountItemComponent } from './components/discount-item/discount-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ArticleItemComponent } from './components/article-item/article-item.com
     ContactComponent,
     AboutusComponent,
     BikesComponent,
-    ArticleItemComponent
+    ArticleItemComponent,
+    NoveltyItemComponent,
+    DiscountItemComponent
   ],
   imports: [
     BrowserModule,
