@@ -24,6 +24,7 @@ import { AuthGuard } from './utils/auth.guard';
 import { AdministrationComponent } from './components/administration/administration.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
     LoginFormComponent,
     AdministrationComponent,
     CategoriesComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    NoveltiesManagementComponent
   ],
   imports: [
     BrowserModule,

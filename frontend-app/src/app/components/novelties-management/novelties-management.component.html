@@ -1,0 +1,25 @@
+<div>
+    <p>Novelties Management</p><br>
+    <p>Article List:</p>
+    <p *ngFor="let article of articleList">id: {{article.id}} , name: {{article.name}}</p>
+    <div>
+        <select [(ngModel)]="articleName" required name="item">
+            <option value="" selected>Please select an article id...</option>
+            <option *ngFor="let article of articleList">{{article.name}}</option>
+        </select> <br>
+        <button type="submit" [disabled]="isButtonAddDisabled()" (click)="addNovelty()">Add</button>
+        <p class="warning" *ngIf="isNovelty()">Please, select an article witch not novelty yet</p>
+    </div>
+    <br>
+    <p>Novelty List:</p>
+    <select [(ngModel)]="noveltyId" required name="noveltyId">
+        <option value="" selected>Please select a novelty id...</option>
+        <option *ngFor="let novelty of noveltyList">{{novelty.id}}</option>
+    </select> <br>
+    <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteNovelty()">Delete</button>
+    <div *ngFor="let novelty of noveltyList">
+        <p>{{novelty.id}} "{{novelty.name}}" {{novelty.category}} {{novelty.brand}} {{novelty.description}} {{novelty.imageurl}} {{novelty.price}}
+            {{novelty.stocklist}}
+        </p>
+    </div>
+</div>

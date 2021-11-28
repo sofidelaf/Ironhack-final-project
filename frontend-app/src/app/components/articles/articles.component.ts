@@ -44,14 +44,13 @@ export class ArticlesComponent implements OnInit {
   getCategories() {
     this.categoriesManagementService.getCategories().subscribe({
       next: dataResult => {
-        console.log(dataResult);
         for (let i= 0; i < dataResult.length; i++) {
           this.categoryList.push(dataResult[i].type);
         }
       }
       ,
       error: error => {
-        console.error("Ther was an error!", error);
+        console.error("There was an error!", error);
       }
     })
   }
@@ -63,7 +62,7 @@ export class ArticlesComponent implements OnInit {
       }
       ,
       error: error => {
-        console.error("Ther was an error!", error);
+        console.error("There was an error!", error);
       }
     })
   }

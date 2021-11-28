@@ -1,16 +1,24 @@
 <div>
     <p>Articles Management</p><br>
     <p>Create New Article</p>
-    <input type="text" placeholder="name" [(ngModel)]="name" name="name"> <br>
-    <select [(ngModel)]="category" required name="category">
+    Name <input type="text" placeholder="name" [(ngModel)]="name" name="name"> <br>
+    Category <select [(ngModel)]="category" required name="category">
         <option *ngFor="let categoryItem of categoryList">{{categoryItem}}</option>
       </select> <br>
-    <input type="text" placeholder="brand" [(ngModel)]="brand" name="brand"> <br>
-    <input type="text" placeholder="description" [(ngModel)]="description" name="description"> <br>
-    <input type="text" placeholder="imageurl" [(ngModel)]="imageurl" name="imageurl"> <br>
-    <input type="number" placeholder="price" [(ngModel)]="price" name="price"> <br>
-    <input type="text" placeholder="size" [(ngModel)]="size" name="size"> <br>
-    <input type="number" placeholder="units" [(ngModel)]="units" name="units"> <br>
+    Brand <input type="text" placeholder="brand" [(ngModel)]="brand" name="brand"> <br>
+    Description <input type="text" placeholder="description" [(ngModel)]="description" name="description"> <br>
+    Image URL <input type="text" placeholder="imageurl" [(ngModel)]="imageurl" name="imageurl"> <br>
+    Price <input type="number" placeholder="price" [(ngModel)]="price" name="price"> <br>
+    Size 
+    <select [(ngModel)]="size">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select> <br>
+    Units <input type="number" placeholder="units" [(ngModel)]="units" name="units"> <br>
     <button type="submit" [disabled]="isButtonDisabled()" (click)="addArticle()">Add</button>
 
     <p>Article List:</p>
