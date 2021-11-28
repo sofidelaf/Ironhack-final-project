@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { AdministrationComponent } from './components/administration/administration.component';
 import { BikesComponent } from './components/bikes/bikes.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
+import { AuthGuard } from './utils/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,6 +27,19 @@ const routes: Routes = [
     path: 'information',
     component: AboutusComponent
   },
+  {
+    path: 'login',
+    component: LoginFormComponent
+  },
+  {
+    path: 'administration',
+    component: AdministrationComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'categories', component: CategoriesComponent}
+    ]},
+    {path: '', redirectTo: '/', pathMatch: 'full'}
+  ,
   {
     path: '**',
     component: PagenotfoundComponent

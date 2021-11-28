@@ -1,0 +1,31 @@
+<div class="container appAdmin">
+    <div class="row" style="padding: 0px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 vcenter pestAdmon">
+            <h1>{{title}}</h1>
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" role="tab" data-toggle="tab" routerLink="categories" routerLinkActive="active">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" role="tab" data-toggle="tab" routerLink="articles" routerLinkActive="active">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" role="tab" data-toggle="tab" routerLink="stocks" routerLinkActive="active">Stocks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" role="tab" data-toggle="tab" routerLink="novelties" routerLinkActive="active">Novelties</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" role="tab" data-toggle="tab" routerLink="discounts" routerLinkActive="active">Discounts</a>
+                </li>
+                <li>
+                    <a class="nav-link" href='#' (click)="logout();$event.preventDefault();$event.stopPropagation();">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row contentPestana">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -18,6 +18,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { NoveltyItemComponent } from './components/novelty-item/novelty-item.component';
 import { DiscountItemComponent } from './components/discount-item/discount-item.component';
+import { AuthenticationService } from './services/authentication.service';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AuthGuard } from './utils/auth.guard';
+import { AdministrationComponent } from './components/administration/administration.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,10 @@ import { DiscountItemComponent } from './components/discount-item/discount-item.
     BikesComponent,
     ArticleItemComponent,
     NoveltyItemComponent,
-    DiscountItemComponent
+    DiscountItemComponent,
+    LoginFormComponent,
+    AdministrationComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,10 @@ import { DiscountItemComponent } from './components/discount-item/discount-item.
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

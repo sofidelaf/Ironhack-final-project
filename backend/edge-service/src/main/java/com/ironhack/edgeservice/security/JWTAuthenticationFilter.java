@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -31,6 +32,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException {
         try {
+            if (CorsUtils.isPreFlightRequest(request)) {
+                response.setStatus(HttpServletResponse.SC_OK);
+            }
             UserEntity credentials = new ObjectMapper().readValue(request.getInputStream(), UserEntity.class);
 
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -50,6 +54,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY.getBytes()).compact();
         response.getOutputStream().print(
                 "{\"token\":\"" + TOKEN_BEARER_PREFIX + token + "\"}");
-        response.addHeader(HEADER_STRING, TOKEN_BEARER_PREFIX + " " + token);
+        response.addHeader(HEADER_STRING, TOKEN_BEARER_PREFIX + token);
     }
 }
