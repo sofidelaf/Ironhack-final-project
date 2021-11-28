@@ -23,6 +23,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { AuthGuard } from './utils/auth.guard';
 import { AdministrationComponent } from './components/administration/administration.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ArticlesComponent } from './components/articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     DiscountItemComponent,
     LoginFormComponent,
     AdministrationComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { AdministrationComponent } from './components/administration/administration.component';
+import { ArticlesComponent } from './components/articles/articles.component';
 import { BikesComponent } from './components/bikes/bikes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -36,7 +37,8 @@ const routes: Routes = [
     component: AdministrationComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: 'categories', component: CategoriesComponent}
+      {path: 'categories', component: CategoriesComponent},
+      {path: 'articles', component: ArticlesComponent}
     ]},
     {path: '', redirectTo: '/', pathMatch: 'full'}
   ,
