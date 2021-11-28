@@ -1,8 +1,12 @@
 <div>
-    <p>Categories Management</p>
+    <p>Categories Management</p><br>
+    <p>Create Category</p>
+    <input type="text" placeholder="category name" [(ngModel)]="categoryName"> <br><br>
+    <input type="text" placeholder="description" [(ngModel)]="description"> <br><br>
+    <button type="submit" [disabled]="isButtonDisabled()" (click)="addCategory()">Create</button>
+
+    <p>Category List:</p>
     <div *ngFor="let category of categoryList; let i = index">
-        <p>{{i}}</p>
-        <p>{{category.type}}</p>
-        <p>{{category.description}}</p>
+        <p>{{i}} {{category.type}} {{category.description}}</p>
     </div>
 </div>

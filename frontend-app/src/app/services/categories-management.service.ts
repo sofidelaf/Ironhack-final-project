@@ -16,4 +16,22 @@ export class CategoriesManagementService {
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.baseUrl + '/categories', {headers: this.authenticationService.createJwtHeader()});
   }
+
+  addCategory(category: Category): Promise<Category> {
+
+    const body = {
+      type: category.type,
+      description: category.description
+    }
+    return this.http.post<Category>(
+      this.baseUrl + '/categories', body, {headers: this.authenticationService.createJwtHeader()}
+      ).toPromise()
+      .then(response => response as Category)
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error("There was an error!", error);
+    return Promise.reject(error.message || error);
+  }
 }
