@@ -2,7 +2,9 @@
     <p>Articles Management</p><br>
     <p>Create New Article</p>
     <input type="text" placeholder="name" [(ngModel)]="name" name="name"> <br>
-    <input type="text" placeholder="category" [(ngModel)]="category" name="category"> <br>
+    <select [(ngModel)]="category" required name="category">
+        <option *ngFor="let categoryItem of categoryList">{{categoryItem}}</option>
+      </select> <br>
     <input type="text" placeholder="brand" [(ngModel)]="brand" name="brand"> <br>
     <input type="text" placeholder="description" [(ngModel)]="description" name="description"> <br>
     <input type="text" placeholder="imageurl" [(ngModel)]="imageurl" name="imageurl"> <br>

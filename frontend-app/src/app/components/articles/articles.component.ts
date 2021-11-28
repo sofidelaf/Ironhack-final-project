@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleCreate } from 'src/app/models/article-create.model';
 import { Article } from 'src/app/models/article.model';
 import { ArticlesManagementService } from 'src/app/services/articles-management.service';
+import { CategoriesManagementService } from 'src/app/services/categories-management.service';
 
 @Component({
   selector: 'app-articles',
@@ -12,6 +13,7 @@ export class ArticlesComponent implements OnInit {
 
   articleList: Article[];
   name: string;
+  categoryList: string[];
   category: string;
   brand: string;
   description: string;
@@ -20,9 +22,11 @@ export class ArticlesComponent implements OnInit {
   size: string;
   units: number;
 
-  constructor(private articleManagementService: ArticlesManagementService) { 
+  constructor(private articleManagementService: ArticlesManagementService,
+          private categoriesManagementService: CategoriesManagementService) { 
     this.articleList = [];
     this.name = "";
+    this.categoryList = [];
     this.category = "";
     this.brand = "";
     this.description = "";
@@ -33,7 +37,23 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCategories();
     this.getArticles();
+  }
+
+  getCategories() {
+    this.categoriesManagementService.getCategories().subscribe({
+      next: dataResult => {
+        console.log(dataResult);
+        for (let i= 0; i < dataResult.length; i++) {
+          this.categoryList.push(dataResult[i].type);
+        }
+      }
+      ,
+      error: error => {
+        console.error("Ther was an error!", error);
+      }
+    })
   }
 
   getArticles() {
@@ -56,7 +76,6 @@ export class ArticlesComponent implements OnInit {
       result => {
         this.getArticles();
         this.name = "";
-        this.category = "";
         this.brand = "";
         this.description = "";
         this.imageurl = "";
@@ -68,7 +87,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   isButtonDisabled(): boolean {
-    return ((this.name == "") || (this.category == "") || (this.brand == "") || (this.description == "") || (this.imageurl == "")
+    return ((this.name == "") || (this.brand == "") || (this.description == "") || (this.imageurl == "")
       || (this.price == 0) || (this.size == "") || (this.units == 0))
   }
 }
