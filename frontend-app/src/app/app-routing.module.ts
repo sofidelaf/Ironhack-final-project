@@ -6,6 +6,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { BikesComponent } from './components/bikes/bikes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DiscountsManagementComponent } from './components/discounts-management/discounts-management.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
@@ -40,9 +41,10 @@ const routes: Routes = [
     children: [
       {path: 'categories', component: CategoriesComponent},
       {path: 'articles', component: ArticlesComponent},
-      {path: 'novelties', component: NoveltiesManagementComponent}
+      {path: 'novelties', component: NoveltiesManagementComponent},
+      {path: 'discounts', component: DiscountsManagementComponent}
     ]},
-    {path: '', redirectTo: '/', pathMatch: 'full'}
+    {path: '', redirectTo: '', pathMatch: 'full'}
   ,
   {
     path: '**',

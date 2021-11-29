@@ -1,0 +1,27 @@
+<div>
+    <p>Discounts Management</p><br>
+    <p>DIscount List:</p>
+    <p *ngFor="let article of articleList">id: {{article.id}} , name: {{article.name}}</p>
+    <div>
+        <select [(ngModel)]="articleName" required name="item">
+            <option value="" selected>Please select an article id...</option>
+            <option *ngFor="let article of articleList">{{article.name}}</option>
+        </select> <br>
+        Promotion <input type="text" placeholder="promotion" [(ngModel)]="promotion" name="promotion"> <br>
+        Discount <input type="number" placeholder="quantity" [(ngModel)]="quantity" name="quantity"> <br>
+        <button type="submit" [disabled]="isButtonAddDisabled()" (click)="addDiscount()">Add</button>
+        <p class="warning" *ngIf="isDiscount()">Please, select an article witch not have discount yet</p>
+    </div>
+    <br>
+    <p>Discount List:</p>
+    <select [(ngModel)]="discountId" required name="discountId">
+        <option value="" selected>Please select a discount id...</option>
+        <option *ngFor="let discount of discountList">{{discount.id}}</option>
+    </select> <br>
+    <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteDiscount()">Delete</button>
+    <div *ngFor="let discount of discountList">
+        <p>{{discount.id}} "{{discount.name}}" {{discount.promotion}} {{discount.quantity}} {{discount.category}} {{discount.brand}} 
+            {{discount.description}} {{discount.imageurl}} {{discount.price}} {{discount.stocklist}}
+        </p>
+    </div>
+</div>

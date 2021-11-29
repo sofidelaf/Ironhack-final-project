@@ -25,6 +25,7 @@ import { AdministrationComponent } from './components/administration/administrat
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
+import { DiscountsManagementComponent } from './components/discounts-management/discounts-management.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NoveltiesManagementComponent } from './components/novelties-management/
     AdministrationComponent,
     CategoriesComponent,
     ArticlesComponent,
-    NoveltiesManagementComponent
+    NoveltiesManagementComponent,
+    DiscountsManagementComponent
   ],
   imports: [
     BrowserModule,
