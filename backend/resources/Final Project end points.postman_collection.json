@@ -248,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\" : \"1\" ,\n    \"promotion\" : \"Black Friday\" ,\n    \"quantity\" : \"5.00\"\n}",
+					"raw": "{\n    \"id\" : \"2\" ,\n    \"promotion\" : \"Black Friday\" ,\n    \"quantity\" : \"5.00\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -341,6 +341,34 @@
 					"port": "8080",
 					"path": [
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store contact information",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\" : \"Pepito\",\n    \"email\" : \"pepito@email.com\" ,\n    \"subject\" : \"postman test\" ,\n    \"details\" : \"bla bla bla bla bla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact"
 					]
 				}
 			},

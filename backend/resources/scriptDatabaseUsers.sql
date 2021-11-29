@@ -50,3 +50,15 @@ CREATE TABLE user_role(
 );
 
 INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
+
+DROP TABLE IF EXISTS contact;
+
+CREATE TABLE contact(
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	full_name VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    details VARCHAR(1000) NOT NULL,
+    creation_datetime DATETIME,
+	PRIMARY KEY(id)
+);
