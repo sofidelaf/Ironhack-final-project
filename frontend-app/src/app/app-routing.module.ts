@@ -10,6 +10,7 @@ import { DiscountsManagementComponent } from './components/discounts-management/
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { SearchComponent } from './components/search/search.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
 import { AuthGuard } from './utils/auth.guard';
 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'bikes',
     component: BikesComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: 'contact',

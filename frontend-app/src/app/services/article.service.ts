@@ -17,4 +17,8 @@ export class ArticleService {
   getArticlesByCategory(category: string): Observable<Article[]> {
     return this.http.get<Article[]>(this.baseUrl + '/articles?category=' + category);
   }
+
+  getArticlesByNameLike(name: string): Observable<Article[]> {
+    return this.http.get<Article[]>(this.baseUrl + '/articles-by-name?name=' + name);
+  }
 }

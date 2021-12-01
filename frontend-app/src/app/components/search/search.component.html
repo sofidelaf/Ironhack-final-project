@@ -1,0 +1,19 @@
+<div>
+    <p>Introduce your search</p>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" id="contactForm">
+        <div>
+            <mat-form-field appearance="fill" class="thirty-width" name="search">
+                <mat-label>Search</mat-label>
+                <input type="text" matInput formControlName="searchText">
+                <mat-error *ngIf="searchText.hasError('required') && (searchText.touched || searchText.dirty)">
+                    Text is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">SEARCH</button>
+    </form>
+    <br>
+    <div>
+        <app-article-item *ngFor="let article of articleList" [article]="article"></app-article-item>
+      </div>
+</div>

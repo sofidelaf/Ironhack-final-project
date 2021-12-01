@@ -26,6 +26,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { DiscountsManagementComponent } from './components/discounts-management/discounts-management.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DiscountsManagementComponent } from './components/discounts-management/
     CategoriesComponent,
     ArticlesComponent,
     NoveltiesManagementComponent,
-    DiscountsManagementComponent
+    DiscountsManagementComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
