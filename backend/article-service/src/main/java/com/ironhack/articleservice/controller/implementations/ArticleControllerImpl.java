@@ -36,4 +36,12 @@ public class ArticleControllerImpl implements ArticleController {
             return articleService.getAll();
         }
     }
+
+    @Override
+    @GetMapping("/articles-by-name")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ArticleOutputDTO> getByNameLike(@RequestParam("name") String name) {
+
+        return articleService.getByNameLike(name);
+    }
 }

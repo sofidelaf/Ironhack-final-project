@@ -38,6 +38,14 @@ public class EdgeControllerImpl implements EdgeController {
     }
 
     @Override
+    @GetMapping("/articles-by-name")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ArticleOutputDTO> getByNameLike(@RequestParam("name") String name) {
+
+        return edgeService.getByNameLike(name);
+    }
+
+    @Override
     @GetMapping("/categories")
     @ResponseStatus(HttpStatus.OK)
     public List<CategoryDTO> getAllCategories() {

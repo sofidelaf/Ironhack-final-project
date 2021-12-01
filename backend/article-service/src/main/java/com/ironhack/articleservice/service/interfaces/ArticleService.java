@@ -10,4 +10,5 @@ public interface ArticleService {
     ArticleDTO store(ArticleDTO articleDTO);
     List<ArticleOutputDTO> getAll();
     List<ArticleOutputDTO> getAllByCategory(String category);
+    List<ArticleOutputDTO> getByNameLike(String name);
 }

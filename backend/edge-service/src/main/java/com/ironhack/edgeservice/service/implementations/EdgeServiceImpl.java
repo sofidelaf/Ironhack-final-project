@@ -48,6 +48,12 @@ public class EdgeServiceImpl implements EdgeService {
     }
 
     @Override
+    public List<ArticleOutputDTO> getByNameLike(String name) {
+
+        return articleClient.getByNameLike(name);
+    }
+
+    @Override
     public CategoryDTO storeCategory(CategoryDTO categoryDTO) {
 
         return articleClient.storeCategory(categoryDTO);

@@ -10,6 +10,7 @@ public interface EdgeController {
     ArticleDTO storeArticle(ArticleDTO articleDTO);
     List<ArticleOutputDTO> getAllArticles(Optional<String> category);
     List<CategoryDTO> getAllCategories();
+    List<ArticleOutputDTO> getByNameLike(String name);
     CategoryDTO storeCategory(CategoryDTO categoryDTO);
     List<DiscountOutputDTO> getAllDiscounts();
     DiscountOutputDTO storeDiscount(DiscountInputDTO discountInputDTO);

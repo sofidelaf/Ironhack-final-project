@@ -127,8 +127,42 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<ArticleOutputDTO> getAllByCategory(String category) {
 
-
         List<ArticleEntity> articleDatabaseList = articleRepository.findByCategoryType(category);
+        List<ArticleOutputDTO> outputList = new ArrayList<>();
+        for (ArticleEntity article : articleDatabaseList) {
+            ArticleOutputDTO articleOutputDTO = new ArticleOutputDTO();
+            articleOutputDTO.setId(article.getId());
+            articleOutputDTO.setName(article.getName());
+            articleOutputDTO.setCategory(article.getCategory().getType());
+            articleOutputDTO.setBrand(article.getBrand());
+            articleOutputDTO.setDescription(article.getDescription());
+            articleOutputDTO.setImageUrl(article.getImageUrl());
+            articleOutputDTO.setPrice(article.getPrice());
+            articleOutputDTO.setCreationDate(article.getCreationDate());
+            articleOutputDTO.setUserCreation(article.getUserCreation());
+            articleOutputDTO.setModificationDate(article.getModificationDate());
+            articleOutputDTO.setUserModification(article.getUserModification());
+            List<StockDTO> stockDTOList = new ArrayList<>();
+            for (StockEntity stockEntity : article.getStockList()) {
+                StockDTO stockDTO = new StockDTO();
+                stockDTO.setSize(stockEntity.getSize());
+                stockDTO.setUnits(stockEntity.getUnits());
+                stockDTOList.add(stockDTO);
+            }
+            articleOutputDTO.setStockList(stockDTOList);
+            outputList.add(articleOutputDTO);
+        }
+        return outputList;
+    }
+
+    @Override
+    public List<ArticleOutputDTO> getByNameLike(String name) {
+
+        if (name.equals("")) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "name can not be empty");
+        }
+
+        List<ArticleEntity> articleDatabaseList = articleRepository.findByNameContainingIgnoreCase(name);
         List<ArticleOutputDTO> outputList = new ArrayList<>();
         for (ArticleEntity article : articleDatabaseList) {
             ArticleOutputDTO articleOutputDTO = new ArticleOutputDTO();

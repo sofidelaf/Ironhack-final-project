@@ -13,4 +13,7 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer>
 
     @Query("SELECT a FROM ArticleEntity AS a LEFT JOIN FETCH a.stockList WHERE a.category.type = :category")
     List<ArticleEntity> findByCategoryType(@Param("category") String category);
+
+    @Query("SELECT a FROM ArticleEntity AS a LEFT JOIN FETCH a.stockList WHERE a.name LIKE %:name%")
+    List<ArticleEntity> findByNameContainingIgnoreCase(@Param("name") String name);
 }

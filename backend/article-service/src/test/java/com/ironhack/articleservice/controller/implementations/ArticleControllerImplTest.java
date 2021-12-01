@@ -289,4 +289,76 @@ class ArticleControllerImplTest {
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("road bike"));
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Berria"));
     }
+
+    @Test
+    void getByNameLike_UnprocessedEntity_NameParamNotInformed() throws Exception {
+
+        mockMvc.perform(get("/articles-by-name?name=")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("UTF-8")
+                )
+                .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void getByNameLike_ReturnEmptyList_NoArticlesInDatabase() throws Exception {
+
+        stockRepository.deleteAll();
+        articleRepository.deleteAll();
+        categoryRepository.deleteAll();
+        MvcResult mvcResult = mockMvc.perform(get("/articles-by-name?name=pepe")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("UTF-8")
+                )
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("[]"));
+    }
+
+    @Test
+    void getByNameLike_ReturnData_ArticlesInDatabase() throws Exception {
+
+        article = new ArticleEntity();
+        article.setCategory(category);
+        article.setName("Belador 8");
+        article.setBrand("Berria");
+        article.setDescription("description test");
+        article.setImageUrl("url image");
+        article.setPrice(BigDecimal.valueOf(1899));
+        article.setCreationDate(LocalDate.now());
+        article.setUserCreation("SpringBootTest");
+        article.setModificationDate(LocalDate.of(1, 1, 1));
+        article.setUserModification("");
+        articleRepository.save(article);
+
+        article = new ArticleEntity();
+        article.setCategory(category);
+        article.setName("new Belador 33");
+        article.setBrand("Berria");
+        article.setDescription("description test");
+        article.setImageUrl("url image");
+        article.setPrice(BigDecimal.valueOf(1999));
+        article.setCreationDate(LocalDate.now());
+        article.setUserCreation("SpringBootTest");
+        article.setModificationDate(LocalDate.of(1, 1, 1));
+        article.setUserModification("");
+        articleRepository.save(article);
+
+        MvcResult mvcResult = mockMvc.perform(get("/articles-by-name?name=belador")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("UTF-8")
+                )
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Belador 6"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("road bike"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Berria"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Belador 8"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("new Belador 33"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1799"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1899"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1999"));
+    }
 }

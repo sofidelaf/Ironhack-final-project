@@ -5,7 +5,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @FeignClient("article-service")
 public interface ArticleClient {
@@ -15,6 +14,9 @@ public interface ArticleClient {
 
     @GetMapping("/articles")
     List<ArticleOutputDTO> getAllArticles(@RequestParam(name = "category") String category);
+
+    @GetMapping("/articles-by-name")
+    List<ArticleOutputDTO> getByNameLike(@RequestParam("name") String name);
 
     @GetMapping("/categories")
     List<CategoryDTO> getAllCategories();

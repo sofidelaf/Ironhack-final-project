@@ -10,4 +10,5 @@ public interface ArticleController {
 
     ArticleDTO store(ArticleDTO articleDTO);
     List<ArticleOutputDTO> getAll(Optional<String> category);
+    List<ArticleOutputDTO> getByNameLike(String name);
 }

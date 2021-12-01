@@ -353,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"fullName\" : \"Pepito\",\n    \"email\" : \"pepito@email.com\" ,\n    \"subject\" : \"postman test\" ,\n    \"details\" : \"bla bla bla bla bla\"\n}",
+					"raw": "{\n    \"fullName\" : \"Magdalena\",\n    \"email\" : \"magdalena@email.com\" ,\n    \"subject\" : \"timetable on Christmas\" ,\n    \"details\" : \"bla bla bla bla bla\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -369,6 +369,31 @@
 					"port": "8080",
 					"path": [
 						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Name Like",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/articles-by-name?name=belador",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles-by-name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "belador"
+						}
 					]
 				}
 			},

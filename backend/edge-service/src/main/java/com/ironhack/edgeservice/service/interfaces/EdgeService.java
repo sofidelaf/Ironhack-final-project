@@ -10,6 +10,7 @@ public interface EdgeService {
     List<ArticleOutputDTO> getAllArticles();
     List<ArticleOutputDTO> getAllArticlesByCategory(String category);
     List<CategoryDTO> getAllCategories();
+    List<ArticleOutputDTO> getByNameLike(String name);
     CategoryDTO storeCategory(CategoryDTO categoryDTO);
     List<DiscountOutputDTO> getAllDiscounts();
     DiscountOutputDTO storeDiscount(DiscountInputDTO discountInputDTO);
