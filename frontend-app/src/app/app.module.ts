@@ -27,6 +27,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { DiscountsManagementComponent } from './components/discounts-management/discounts-management.component';
 import { SearchComponent } from './components/search/search.component';
+import { MountainBikesComponent } from './components/mountain-bikes/mountain-bikes.component';
+import { ElectricBikesComponent } from './components/electric-bikes/electric-bikes.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { SearchComponent } from './components/search/search.component';
     ArticlesComponent,
     NoveltiesManagementComponent,
     DiscountsManagementComponent,
-    SearchComponent
+    SearchComponent,
+    MountainBikesComponent,
+    ElectricBikesComponent
   ],
   imports: [
     BrowserModule,

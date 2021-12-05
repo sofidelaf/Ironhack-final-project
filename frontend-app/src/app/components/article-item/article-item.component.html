@@ -1,8 +1,10 @@
-<div class="article-img"  [ngStyle]="{'background-image': 'url('+ article.imageurl +')'}"></div>
+<div class="article-img"></div>
 <div class="article-body">
-<p class="article-text">Id: {{article.id}}</p>
+  <p class="article-text">Id: {{article.id}}</p>
   <p class="article-text">Name: {{article.name}}</p>
   <p class="article-text">Brand: {{article.brand}}</p>
   <p class="article-text">Description: {{article.description}}</p>
-  <p class="article-text">Price: {{article.price}}</p>
+  <p class="article-text">Price: {{article.price}}€</p>
+  <!--<img [src]="article.imageurl" class="image">-->
+  <img src="../../../assets/img/berria_belado0_-6.png" class="image">
 </div>

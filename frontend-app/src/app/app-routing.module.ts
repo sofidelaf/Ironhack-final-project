@@ -7,7 +7,9 @@ import { BikesComponent } from './components/bikes/bikes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DiscountsManagementComponent } from './components/discounts-management/discounts-management.component';
+import { ElectricBikesComponent } from './components/electric-bikes/electric-bikes.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MountainBikesComponent } from './components/mountain-bikes/mountain-bikes.component';
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { SearchComponent } from './components/search/search.component';
@@ -26,6 +28,16 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+
+  {
+    path: 'mountain',
+    component: MountainBikesComponent
+  },
+
+  {
+    path: 'electric',
+    component: ElectricBikesComponent
   },
   {
     path: 'contact',
