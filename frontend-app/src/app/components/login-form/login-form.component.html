@@ -1,25 +1,28 @@
-<form (submit)=loginUser($event)>
-    <div class="row main">
-        <div class="form-header">
-            <h1 class="text-center">Login Form</h1>
-            <div class="main-content">
-                <div class="input-group">
-                    <span class="input-group-addon"><img src="../../../assets/img/user.png" /></span>
-                    <input id="username" type="text" class="form-control" [(ngModel)]="username" name="username"
-                        placeholder="Introduce your username" required>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon"><img src="../../../assets/img/password.png" /></span>
-                    <input id="password" type="password" class="form-control" [(ngModel)]="password" name="password"
-                        placeholder="Introduce your password" required>
-                </div>
-                <div class="form-group">
-                    <input [disabled]="loading" type="submit" value="Login" class="btn btn-danger btn-lg btn-block login-button" />
-                    <img *ngIf="loading" src="../../../assets/img/loading.png"/>
-                </div>
+<div class="container">
+    <form (submit)=loginUser($event)>
+        <div class="row main">
+            <div class="form-header">
+                <h1 class="text-center">Login Form</h1>
+                <div class="main-content">
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="../../../assets/img/user.png" /></span>
+                        <input id="username" type="text" class="form-control" [(ngModel)]="username" name="username"
+                            placeholder="Introduce your username" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="../../../assets/img/password.png" /></span>
+                        <input id="password" type="password" class="form-control" [(ngModel)]="password" name="password"
+                            placeholder="Introduce your password" required>
+                    </div>
+                    <div class="form-group">
+                        <input [disabled]="loading" type="submit" value="Login"
+                            class="btn btn-danger btn-lg btn-block login-button" />
+                        <img *ngIf="loading" src="../../../assets/img/loading.png" />
+                    </div>
 
-                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
