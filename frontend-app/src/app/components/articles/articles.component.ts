@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
   units: number;
 
   constructor(private articleManagementService: ArticlesManagementService,
-          private categoriesManagementService: CategoriesManagementService) { 
+    private categoriesManagementService: CategoriesManagementService) {
     this.articleList = [];
     this.name = "";
     this.categoryList = [];
@@ -44,8 +44,11 @@ export class ArticlesComponent implements OnInit {
   getCategories() {
     this.categoriesManagementService.getCategories().subscribe({
       next: dataResult => {
-        for (let i= 0; i < dataResult.length; i++) {
+        for (let i = 0; i < dataResult.length; i++) {
           this.categoryList.push(dataResult[i].type);
+        }
+        if (this.categoryList.length > 0) {
+          this.category = this.categoryList[0];
         }
       }
       ,
@@ -68,9 +71,12 @@ export class ArticlesComponent implements OnInit {
   }
 
   addArticle() {
-    const newArticle: ArticleCreate = new ArticleCreate(this.name, this.category,this.brand, this.description, this.imageurl,
+    const newArticle: ArticleCreate = new ArticleCreate(this.name, this.category, this.brand, this.description, this.imageurl,
       this.price, this.size, this.units);
 
+    console.log(this.categoryList);
+    console.log(this.categoryList[0]);
+    console.log(newArticle);
     this.articleManagementService.addArticle(newArticle).then(
       result => {
         this.getArticles();
