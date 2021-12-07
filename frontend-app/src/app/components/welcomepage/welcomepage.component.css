@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 0.3rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.child {
+    border-style: groove;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.item {
+    border-style: double;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 0.3rem;
+    border-color: black;
+    border-width: 0.2rem;
+    padding: 0.2rem;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+}

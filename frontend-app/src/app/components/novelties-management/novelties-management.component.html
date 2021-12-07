@@ -18,7 +18,7 @@
     </select> <br>
     <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteNovelty()">Delete</button>
     <div *ngFor="let novelty of noveltyList">
-        <p>{{novelty.id}} "{{novelty.name}}" {{novelty.category}} {{novelty.brand}} {{novelty.description}} {{novelty.imageurl}} {{novelty.price}}
+        <p>{{novelty.id}} "{{novelty.name}}" {{novelty.category}} {{novelty.brand}} {{novelty.description}} {{novelty.imageUrl}} {{novelty.price}}
             {{novelty.stocklist}}
         </p>
     </div>

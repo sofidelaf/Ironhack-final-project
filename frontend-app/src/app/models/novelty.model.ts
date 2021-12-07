@@ -8,7 +8,7 @@ export class Novelty {
         private _category: string,
         private _brand: string,
         private _description: string,
-        private _imageurl: string,
+        private _imageUrl: string,
         private _price: number,
         private _stocklist: Stock[],
     ){
@@ -26,11 +26,11 @@ export class Novelty {
     public set price(value: number) {
         this._price = value;
     }
-    public get imageurl(): string {
-        return this._imageurl;
+    public get imageUrl(): string {
+        return this._imageUrl;
     }
-    public set imageurl(value: string) {
-        this._imageurl = value;
+    public set imageUrl(value: string) {
+        this._imageUrl = value;
     }
     public get description(): string {
         return this._description;

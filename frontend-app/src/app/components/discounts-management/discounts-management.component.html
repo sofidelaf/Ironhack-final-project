@@ -21,7 +21,7 @@
     <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteDiscount()">Delete</button>
     <div *ngFor="let discount of discountList">
         <p>{{discount.id}} "{{discount.name}}" {{discount.promotion}} {{discount.quantity}} {{discount.category}} {{discount.brand}} 
-            {{discount.description}} {{discount.imageurl}} {{discount.price}} {{discount.stocklist}}
+            {{discount.description}} {{discount.imageUrl}} {{discount.price}} {{discount.stocklist}}
         </p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="discount-img"  [ngStyle]="{'background-image': 'url('+ discount.imageurl +')'}"></div>
+<div class="discount-img"></div>
 <div class="discount-body">
 <p class="discount-text">Id: {{discount.id}}</p>
   <p class="discount-text">Name: {{discount.name}}</p>
@@ -7,4 +7,5 @@
   <p class="discount-text">Price: {{discount.price}}</p>
   <p class="discount-text">Discount: {{discount.quantity}} %</p>
   <p class="discount-text">Promotion: {{discount.promotion}}</p>
+  <img [src]="discount.imageUrl" class="image">
 </div>
