@@ -13,7 +13,7 @@
         <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">SEARCH</button>
     </form>
     <br>
-    <div>
-        <app-article-item *ngFor="let article of articleList" [article]="article"></app-article-item>
+    <div class="container">
+        <app-article-item class="item" *ngFor="let article of articleList" [article]="article"></app-article-item>
       </div>
 </div>
