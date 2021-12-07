@@ -400,7 +400,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "update Price",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -412,11 +412,11 @@
 						}
 					]
 				},
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"price\" : \"3299.00\"\n}",
+					"raw": "{\n    \"price\" : \"2299.00\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

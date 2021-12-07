@@ -29,6 +29,7 @@ import { DiscountsManagementComponent } from './components/discounts-management/
 import { SearchComponent } from './components/search/search.component';
 import { MountainBikesComponent } from './components/mountain-bikes/mountain-bikes.component';
 import { ElectricBikesComponent } from './components/electric-bikes/electric-bikes.component';
+import { UpdatePriceComponent } from './components/update-price/update-price.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ElectricBikesComponent } from './components/electric-bikes/electric-bik
     DiscountsManagementComponent,
     SearchComponent,
     MountainBikesComponent,
-    ElectricBikesComponent
+    ElectricBikesComponent,
+    UpdatePriceComponent
   ],
   imports: [
     BrowserModule,

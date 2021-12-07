@@ -34,7 +34,6 @@ export class LoginFormComponent implements OnInit {
     this.authenticationService.login(this.username, this.password).then(
       result => {
         if (result === true) {
-          console.log("result true to call login backend");
           this.router.navigate(['administration']);
         } else {
           this.error = "User name or password invalid";

@@ -3,6 +3,7 @@ package com.ironhack.edgeservice.security;
 import static com.ironhack.edgeservice.security.Constants.*;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -50,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/discounts").permitAll()
                 .antMatchers(HttpMethod.POST, "/contact").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/administration/**").permitAll()
+                //.antMatchers("/administration/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -64,10 +66,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
-    @Bean
+/*    @Bean
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
         return source;
+    }*/
+
+    @Configuration
+    public class CorsConfig {
+
+        @Bean
+        public CorsFilter corsFilter() {
+            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+            CorsConfiguration config = new CorsConfiguration();
+            config.setAllowCredentials(true);
+            config.addAllowedOrigin("http://localhost:4200");
+            config.addAllowedHeader("*");
+            config.addAllowedMethod("POST");
+            config.addAllowedMethod("GET");
+            config.addAllowedMethod("PATCH");
+            config.addAllowedMethod("DELETE");
+            source.registerCorsConfiguration("/**", config);
+            return new CorsFilter(source);
+        }
     }
 }

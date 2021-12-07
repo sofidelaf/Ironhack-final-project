@@ -13,6 +13,7 @@ import { MountainBikesComponent } from './components/mountain-bikes/mountain-bik
 import { NoveltiesManagementComponent } from './components/novelties-management/novelties-management.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { SearchComponent } from './components/search/search.component';
+import { UpdatePriceComponent } from './components/update-price/update-price.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
 import { AuthGuard } from './utils/auth.guard';
 
@@ -58,6 +59,7 @@ const routes: Routes = [
     children: [
       {path: 'categories', component: CategoriesComponent},
       {path: 'articles', component: ArticlesComponent},
+      {path: 'update-price', component: UpdatePriceComponent},
       {path: 'novelties', component: NoveltiesManagementComponent},
       {path: 'discounts', component: DiscountsManagementComponent}
     ]},

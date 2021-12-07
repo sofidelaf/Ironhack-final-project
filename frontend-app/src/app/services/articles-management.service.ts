@@ -37,6 +37,32 @@ export class ArticlesManagementService {
       .catch(this.handleError);
   }
 
+  async updatePrice(id: number, price: number): Promise<any> {
+
+    const body = {
+      price: price
+    }
+
+    try {
+      const response = await this.http.patch<any>(
+        this.baseUrl + '/articles/' + id, body, { headers: this.authenticationService.createJwtHeader() }
+      ).toPromise();
+      return response as any;
+    } catch (error) {
+      return this.handleError(error);
+    }
+  }
+
+  // updatePrice(id: number, price: number): Observable<any> {
+
+  //   const body = {
+  //     price: price
+  //   }
+
+  //   return this.http.patch<any>(
+  //     this.baseUrl + '/articles/' + id, body, {headers: this.authenticationService.createJwtHeader()});
+  // }
+
   private handleError(error: any): Promise<any> {
     console.error("There was an error!", error);
     return Promise.reject(error.message || error);
