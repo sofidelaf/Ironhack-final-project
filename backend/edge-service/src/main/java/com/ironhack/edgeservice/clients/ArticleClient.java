@@ -2,6 +2,7 @@ package com.ironhack.edgeservice.clients;
 
 import com.ironhack.edgeservice.controller.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,9 @@ public interface ArticleClient {
 
     @GetMapping("/articles-by-name")
     List<ArticleOutputDTO> getByNameLike(@RequestParam("name") String name);
+
+    @PatchMapping("/articles/{id}")
+    void updatePrice(@PathVariable(name = "id") int id, @RequestBody ArticleDTO articleDTO);
 
     @GetMapping("/categories")
     List<CategoryDTO> getAllCategories();

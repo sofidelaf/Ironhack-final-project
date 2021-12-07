@@ -44,4 +44,12 @@ public class ArticleControllerImpl implements ArticleController {
 
         return articleService.getByNameLike(name);
     }
+
+    @Override
+    @PatchMapping("/articles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePrice(@PathVariable(name = "id") int id, @RequestBody ArticleDTO articleDTO) {
+
+        articleService.updatePrice(id, articleDTO);
+    }
 }

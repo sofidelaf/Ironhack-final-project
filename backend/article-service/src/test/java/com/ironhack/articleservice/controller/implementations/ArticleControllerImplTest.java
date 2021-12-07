@@ -23,10 +23,11 @@ import org.springframework.web.context.WebApplicationContext;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -50,6 +51,7 @@ class ArticleControllerImplTest {
     private CategoryEntity category;
     private ArticleEntity article;
     private StockEntity stock;
+    private ArticleDTO articleDTO;
 
     @BeforeEach
     void setUp() {
@@ -87,6 +89,8 @@ class ArticleControllerImplTest {
         stock.setModificationDate(LocalDate.of(1, 1, 1));
         stock.setUserModification("");
         stockRepository.save(stock);
+
+        articleDTO = new ArticleDTO();
     }
 
     @AfterEach
@@ -99,7 +103,6 @@ class ArticleControllerImplTest {
     @Test
     void store_UnprocessedEntity_InvalidBody() throws Exception {
 
-        ArticleDTO articleDTO = new ArticleDTO();
         articleDTO.setName("");
         articleDTO.setCategory("");
         articleDTO.setBrand("");
@@ -185,7 +188,6 @@ class ArticleControllerImplTest {
         articleRepository.deleteAll();
         categoryRepository.deleteAll();
 
-        ArticleDTO articleDTO = new ArticleDTO();
         articleDTO.setName("Name");
         articleDTO.setCategory("mountain bike");
         articleDTO.setBrand("Orbea");
@@ -207,7 +209,6 @@ class ArticleControllerImplTest {
     @Test
     void store_IsCreated_ValidBody() throws Exception {
 
-        ArticleDTO articleDTO = new ArticleDTO();
         articleDTO.setName("Name");
         articleDTO.setCategory("road bike");
         articleDTO.setBrand("Orbea");
@@ -360,5 +361,45 @@ class ArticleControllerImplTest {
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1799"));
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1899"));
         assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1999"));
+    }
+
+    @Test
+    void updatePrice_NotFound_ArticleNotExits() throws Exception {
+
+        articleDTO.setPrice(BigDecimal.valueOf(2990));
+        String body = objectMapper.writeValueAsString(articleDTO);
+        mockMvc.perform(patch("/articles/0")
+                        .content(body)
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void update_UnprocessedEntity_EmptyBody() throws Exception {
+
+        articleDTO.setPrice(null);
+        String body = objectMapper.writeValueAsString(articleDTO);
+        mockMvc.perform(patch("/articles/"+article.getId())
+                        .content(body)
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void update_NoContent_ArticleToUpdate() throws Exception {
+
+        articleDTO.setPrice(BigDecimal.valueOf(2990));
+        String body = objectMapper.writeValueAsString(articleDTO);
+        mockMvc.perform(patch("/articles/"+article.getId())
+                        .content(body)
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isNoContent());
+
+        Optional<ArticleEntity> optionalArticle = articleRepository.findById(article.getId());
+        assertTrue(optionalArticle.isPresent());
+        assertEquals(BigDecimal.valueOf(2990.00).setScale(2), optionalArticle.get().getPrice());
     }
 }

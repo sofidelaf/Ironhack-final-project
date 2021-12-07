@@ -54,6 +54,12 @@ public class EdgeServiceImpl implements EdgeService {
     }
 
     @Override
+    public void updatePrice(int id, ArticleDTO articleDTO) {
+
+        articleClient.updatePrice(id, articleDTO);
+    }
+
+    @Override
     public CategoryDTO storeCategory(CategoryDTO categoryDTO) {
 
         return articleClient.storeCategory(categoryDTO);

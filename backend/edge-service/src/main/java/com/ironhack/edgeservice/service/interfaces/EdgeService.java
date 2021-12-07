@@ -11,6 +11,7 @@ public interface EdgeService {
     List<ArticleOutputDTO> getAllArticlesByCategory(String category);
     List<CategoryDTO> getAllCategories();
     List<ArticleOutputDTO> getByNameLike(String name);
+    void updatePrice(int id, ArticleDTO articleDTO);
     CategoryDTO storeCategory(CategoryDTO categoryDTO);
     List<DiscountOutputDTO> getAllDiscounts();
     DiscountOutputDTO storeDiscount(DiscountInputDTO discountInputDTO);

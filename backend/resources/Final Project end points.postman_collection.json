@@ -32,7 +32,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTU5NjI5NX0.252c_k38VK372kQlWSCPj_7g3j7uVHKK-7T2LOxswxl1V3eXGdU2kwQ44ThrVroQEJxnE6X71388tXFwZZkUow",
 							"type": "string"
 						}
 					]
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"type\" : \"tools\" ,\n    \"description\" : \"Everything you need to maintanance your bikes\"\n}",
+					"raw": "{\n    \"type\" : \"electric bike\" ,\n    \"description\" : \"Electric Bike\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +70,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTU5NjQzOX0.SpcoM-ox5fU6T1O9u4Dnq8jP2cG-COGwM8ciHee66-pmSJgw7XEB20VQXjuzR1Ji6UWoj_1S260ECLmG3ooGIQ",
 							"type": "string"
 						}
 					]
@@ -79,7 +79,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"Belador 6\" ,\n    \"category\" : \"road bike\" ,\n    \"brand\" : \"Berria\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"price\" : \"99999.00\",\n    \"size\" : \"L\" ,\n    \"units\" : \"1\" \n}",
+					"raw": "{\n    \"name\" : \"Elec M30\" ,\n    \"category\" : \"electric bike\" ,\n    \"brand\" : \"Orbea\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"price\" : \"3199.00\",\n    \"size\" : \"M\" ,\n    \"units\" : \"1\" \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,7 +125,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/articles?category=road bike",
+					"raw": "http://localhost:8080/articles?category=mountain bike",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -137,7 +137,7 @@
 					"query": [
 						{
 							"key": "category",
-							"value": "road bike"
+							"value": "mountain bike"
 						}
 					]
 				}
@@ -394,6 +394,45 @@
 							"key": "name",
 							"value": "belador"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTczMDM0NX0.J3SYGcNX82dW1tYN2yTIEzZBUCr-XLdcZqaBqpczaivsbahhREq_m_LqJsZXm1WSD-nfmrhyUR1fjjeIo3jMeA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\" : \"3299.00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/articles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"1"
 					]
 				}
 			},

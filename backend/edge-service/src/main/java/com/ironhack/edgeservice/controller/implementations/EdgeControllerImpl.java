@@ -46,6 +46,14 @@ public class EdgeControllerImpl implements EdgeController {
     }
 
     @Override
+    @PatchMapping("/articles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePrice(@PathVariable(name = "id") int id, @RequestBody ArticleDTO articleDTO) {
+
+        edgeService.updatePrice(id, articleDTO);
+    }
+
+    @Override
     @GetMapping("/categories")
     @ResponseStatus(HttpStatus.OK)
     public List<CategoryDTO> getAllCategories() {

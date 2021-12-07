@@ -189,4 +189,22 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return outputList;
     }
+
+    @Override
+    public void updatePrice(int id, ArticleDTO articleDTO) {
+
+        if (articleDTO.getPrice() == null) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Not able to process");
+        } else {
+            Optional<ArticleEntity> optionalArticle = articleRepository.findById(id);
+
+            if (optionalArticle.isPresent()) {
+                optionalArticle.get().setPrice(articleDTO.getPrice());
+                optionalArticle.get().setModificationDate(LocalDate.now());
+                articleRepository.save(optionalArticle.get());
+            } else {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource not found");
+            }
+        }
+    }
 }
