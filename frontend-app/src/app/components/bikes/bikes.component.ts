@@ -22,6 +22,7 @@ export class BikesComponent implements OnInit {
   getBikes(){
     this.articleService.getArticlesByCategory("road bike").subscribe({
     next: dataResult => {
+      console.log(dataResult);
       this.bikeList = dataResult;
     }
     ,
