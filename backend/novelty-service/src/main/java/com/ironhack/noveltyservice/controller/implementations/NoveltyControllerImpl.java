@@ -39,4 +39,12 @@ public class NoveltyControllerImpl implements NoveltyController {
 
         noveltyService.delete(id);
     }
+
+    @Override
+    @GetMapping("/novelties-by-article-id")
+    @ResponseStatus(HttpStatus.OK)
+    public NoveltyOutputDTO findByArticleId(@RequestParam(name = "articleId") int articleId) {
+
+        return noveltyService.findByArticleId(articleId);
+    }
 }

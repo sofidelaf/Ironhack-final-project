@@ -194,4 +194,30 @@ class NoveltyServiceImplTest {
                 .andExpect(status().isNoContent());
         assertEquals(Optional.empty(), noveltyRepository.findById(novelty.getId()));
     }
+
+    @Test
+    void findByArticleId_NotFound_NoveltyNotExitsInDatabase() throws Exception {
+
+        mockMvc.perform(get("/novelties-by-article-id?articleId=0")
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void findByArticleId_ReturnData_NoveltyInDatabase() throws Exception {
+
+        MvcResult mvcResult = mockMvc.perform(get("/novelties-by-article-id?articleId=" + article.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("UTF-8")
+                )
+                .andExpect(status().isOk())
+                .andReturn();
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Belador 6"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("road bike"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("Berria"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("description test"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("url image"));
+        assertTrue(mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8).contains("1799.00"));
+    }
 }

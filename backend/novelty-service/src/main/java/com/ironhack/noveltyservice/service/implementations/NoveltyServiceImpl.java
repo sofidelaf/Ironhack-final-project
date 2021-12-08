@@ -108,4 +108,32 @@ public class NoveltyServiceImpl implements NoveltyService {
         }
         noveltyRepository.delete(optionalNovelty.get());
     }
+
+    @Override
+    public NoveltyOutputDTO findByArticleId(int articleId) {
+
+        Optional<NoveltyEntity> optionalNovelty = noveltyRepository.findByArticleId(articleId);
+        if (!optionalNovelty.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Novelty does not exist");
+        }
+
+        NoveltyOutputDTO outputNovelty = new NoveltyOutputDTO();
+        outputNovelty.setId(optionalNovelty.get().getId());
+        outputNovelty.setCategory(optionalNovelty.get().getArticle().getCategory().getType());
+        outputNovelty.setName(optionalNovelty.get().getArticle().getName());
+        outputNovelty.setBrand(optionalNovelty.get().getArticle().getBrand());
+        outputNovelty.setDescription(optionalNovelty.get().getArticle().getDescription());
+        outputNovelty.setImageUrl(optionalNovelty.get().getArticle().getImageUrl());
+        outputNovelty.setPrice(optionalNovelty.get().getArticle().getPrice());
+        List<StockDTO> stockDTOList = new ArrayList<>();
+        for (StockEntity stock : optionalNovelty.get().getArticle().getStockList()) {
+            StockDTO stockDTO = new StockDTO();
+            stockDTO.setSize(stock.getSize());
+            stockDTO.setUnits(stock.getUnits());
+            stockDTOList.add(stockDTO);
+        }
+        outputNovelty.setStockList(stockDTOList);
+
+        return outputNovelty;
+    }
 }

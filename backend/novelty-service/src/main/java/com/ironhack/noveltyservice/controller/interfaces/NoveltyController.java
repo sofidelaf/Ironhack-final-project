@@ -10,4 +10,5 @@ public interface NoveltyController {
     List<NoveltyOutputDTO> getAll();
     NoveltyOutputDTO store(NoveltyInputDTO noveltyInputDTO);
     void delete(int id);
+    NoveltyOutputDTO findByArticleId(int articleId);
 }

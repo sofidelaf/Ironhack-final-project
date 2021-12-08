@@ -9,4 +9,5 @@ public interface NoveltyService {
     List<NoveltyOutputDTO> getAll();
     NoveltyOutputDTO store(int id);
     void delete(int id);
+    NoveltyOutputDTO findByArticleId(int articleId);
 }
