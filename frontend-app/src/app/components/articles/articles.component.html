@@ -1,6 +1,6 @@
-<div>
-    <p>Articles Management</p><br>
-    <p>Create New Article</p>
+<div class="submenu">
+    <p class="header">Articles Management</p><br>
+
     Name <input type="text" placeholder="name" [(ngModel)]="name" name="name"> <br>
     Category <select [(ngModel)]="category" required name="category">
         <option *ngFor="let categoryItem of categoryList">{{categoryItem}}</option>
@@ -19,12 +19,13 @@
         <option value="XXL">XXL</option>
     </select> <br>
     Units <input type="number" placeholder="units" [(ngModel)]="units" name="units"> <br>
-    <button type="submit" [disabled]="isButtonDisabled()" (click)="addArticle()">Add</button>
+    <button type="submit" [disabled]="isButtonDisabled()" (click)="addArticle()">Add new article</button> <br><br>
 
     <p>Article List:</p>
-    <div *ngFor="let article of articleList; let i = index">
-        <p>{{i}} {{article.id}} {{article.name}} {{article.category}} {{article.brand}} {{article.description}} {{article.imageUrl}} {{article.price}}
-            {{article.stocklist}}
+    <div *ngFor="let article of articleList">
+        <p><strong>Id:</strong> {{article.id}} <strong>Name:</strong> {{article.name}} <strong>Category:</strong> {{article.category}} 
+            <strong>Brand:</strong> {{article.brand}} <strong>Description:</strong> {{article.description}} <strong>Price:</strong>{{article.price}}
+            <strong>Image:</strong>{{article.imageUrl}} <strong>Stock:</strong> {{article.stockList}}
         </p>
     </div>
 </div>

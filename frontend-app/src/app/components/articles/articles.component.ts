@@ -62,6 +62,7 @@ export class ArticlesComponent implements OnInit {
     this.articleManagementService.getArticles().subscribe({
       next: dataResult => {
         this.articleList = dataResult;
+        console.log(dataResult);
       }
       ,
       error: error => {
@@ -71,12 +72,10 @@ export class ArticlesComponent implements OnInit {
   }
 
   addArticle() {
-    const newArticle: ArticleCreate = new ArticleCreate(this.name, this.category, this.brand, this.description, this.imageurl,
+    const image:string = '../../../assets/img/' + this.imageurl;
+    const newArticle: ArticleCreate = new ArticleCreate(this.name, this.category, this.brand, this.description, image,
       this.price, this.size, this.units);
 
-    console.log(this.categoryList);
-    console.log(this.categoryList[0]);
-    console.log(newArticle);
     this.articleManagementService.addArticle(newArticle).then(
       result => {
         this.getArticles();

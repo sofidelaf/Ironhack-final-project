@@ -10,15 +10,15 @@ export class Novelty {
         private _description: string,
         private _imageUrl: string,
         private _price: number,
-        private _stocklist: Stock[],
+        private _stockList: Stock[],
     ){
     }
 
     public get stocklist(): Stock[] {
-        return this._stocklist;
+        return this._stockList;
     }
     public set stocklist(value: Stock[]) {
-        this._stocklist = value;
+        this._stockList = value;
     }
     public get price(): number {
         return this._price;

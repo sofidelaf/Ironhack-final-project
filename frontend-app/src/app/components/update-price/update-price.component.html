@@ -1,13 +1,14 @@
-<div>
-    <p>Price Management</p><br>
+<div class="submenu">
+    <p class="header">Price Management</p><br>
     Article Id <input type="number" placeholder="id" [(ngModel)]="articleId" name="id"> <br>
     Price <input type="number" placeholder="price" [(ngModel)]="price" name="price"> <br>
-    <button type="submit" [disabled]="isButtonDisabled()" (click)="updatePrice()">Update</button>
+    <button type="submit" [disabled]="isButtonDisabled()" (click)="updatePrice()">Update</button> <br><br>
 
     <p>Article List:</p>
-    <div *ngFor="let article of articleList; let i = index">
-        <p>{{article.id}} {{article.name}} {{article.category}} {{article.brand}} {{article.description}} {{article.imageUrl}} {{article.price}}
-            {{article.stocklist}}
+    <div *ngFor="let article of articleList">
+        <p><strong>Id:</strong> {{article.id}} <strong>Name:</strong> {{article.name}} <strong>Category:</strong> {{article.category}} 
+            <strong>Brand:</strong> {{article.brand}} <strong>Description:</strong> {{article.description}} <strong>Price:</strong>{{article.price}}€
+            <strong>Image:</strong>{{article.imageUrl}} <strong>Stock:</strong> {{article.stockList}}
         </p>
     </div>
 </div>

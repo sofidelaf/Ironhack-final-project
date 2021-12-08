@@ -1,3 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.submenu {
+    margin-left: 0.6rem;
+}
+
+.header {
+    text-align: center;
+    text-decoration: underline;
+}
+
 .warning {
     color: red;
 }

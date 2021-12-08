@@ -1,7 +1,7 @@
-<div>
-    <p>Discounts Management</p><br>
+<div class="submenu">
+    <p class="header">Discounts Management</p><br>
     <p>DIscount List:</p>
-    <p *ngFor="let article of articleList">id: {{article.id}} , name: {{article.name}}</p>
+    <p *ngFor="let article of articleList"><strong>Id:</strong> {{article.id}} , name: {{article.name}}</p>
     <div>
         <select [(ngModel)]="articleName" required name="item">
             <option value="" selected>Please select an article id...</option>
@@ -9,7 +9,7 @@
         </select> <br>
         Promotion <input type="text" placeholder="promotion" [(ngModel)]="promotion" name="promotion"> <br>
         Discount <input type="number" placeholder="quantity" [(ngModel)]="quantity" name="quantity"> <br>
-        <button type="submit" [disabled]="isButtonAddDisabled()" (click)="addDiscount()">Add</button>
+        <button type="submit" [disabled]="isButtonAddDisabled()" (click)="addDiscount()">Add new discount</button>
         <p class="warning" *ngIf="isDiscount()">Please, select an article witch not have discount yet</p>
     </div>
     <br>
@@ -20,8 +20,9 @@
     </select> <br>
     <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteDiscount()">Delete</button>
     <div *ngFor="let discount of discountList">
-        <p>{{discount.id}} "{{discount.name}}" {{discount.promotion}} {{discount.quantity}} {{discount.category}} {{discount.brand}} 
-            {{discount.description}} {{discount.imageUrl}} {{discount.price}} {{discount.stocklist}}
+        <p><strong>Id:</strong> {{discount.id}}, <strong>Name:</strong> {{discount.name}} <strong>Category:</strong> {{discount.category}} 
+            <strong>Brand:</strong> {{discount.brand}} <strong>Description:</strong> {{discount.description}} <strong>Price:</strong> {{discount.price}}
+            <strong>Image:</strong>{{discount.imageUrl}} <strong>Stock:</strong> {{discount.stockList}}
         </p>
     </div>
 </div>

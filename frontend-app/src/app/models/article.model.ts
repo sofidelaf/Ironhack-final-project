@@ -10,7 +10,7 @@ export class Article {
         private _description: string,
         private _imageUrl: string,
         private _price: number,
-        private _stocklist: Stock[],
+        private _stockList: Stock[],
         private _localdate: Date,
         private _usercreation: string,
         private _modificationDate: Date,
@@ -43,11 +43,11 @@ export class Article {
     public set localdate(value: Date) {
         this._localdate = value;
     }
-    public get stocklist(): Stock[] {
-        return this._stocklist;
+    public get stockList(): Stock[] {
+        return this._stockList;
     }
-    public set stocklist(value: Stock[]) {
-        this._stocklist = value;
+    public set stockList(value: Stock[]) {
+        this._stockList = value;
     }
     public get price(): number {
         return this._price;
