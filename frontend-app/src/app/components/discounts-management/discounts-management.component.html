@@ -4,7 +4,7 @@
     <p *ngFor="let article of articleList"><strong>Id:</strong> {{article.id}} , name: {{article.name}}</p>
     <div>
         <select [(ngModel)]="articleName" required name="item">
-            <option value="" selected>Please select an article id...</option>
+            <option value="" selected>Please select an article name...</option>
             <option *ngFor="let article of articleList">{{article.name}}</option>
         </select> <br>
         Promotion <input type="text" placeholder="promotion" [(ngModel)]="promotion" name="promotion"> <br>
@@ -20,8 +20,10 @@
     </select> <br>
     <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteDiscount()">Delete</button>
     <div *ngFor="let discount of discountList">
-        <p><strong>Id:</strong> {{discount.id}}, <strong>Name:</strong> {{discount.name}} <strong>Category:</strong> {{discount.category}} 
-            <strong>Brand:</strong> {{discount.brand}} <strong>Description:</strong> {{discount.description}} <strong>Price:</strong> {{discount.price}}
+        <p><strong>Id:</strong> {{discount.id}}, <strong>Name:</strong> {{discount.name}} <strong>Category:</strong>
+            {{discount.category}} <strong>Brand:</strong> {{discount.brand}} <strong>Description:</strong>
+            {{discount.description}} <strong>Price:</strong> {{discount.price}} <strong>Discount:</strong>
+            {{discount.quantity}}% <strong>Promotion:</strong> {{discount.promotion}}
             <strong>Image:</strong>{{discount.imageUrl}} <strong>Stock:</strong> {{discount.stockList}}
         </p>
     </div>

@@ -4,7 +4,7 @@
     <p *ngFor="let article of articleList"><strong>Id:</strong> {{article.id}} , name: {{article.name}}</p>
     <div>
         <select [(ngModel)]="articleName" required name="item">
-            <option value="" selected>Please select an article id...</option>
+            <option value="" selected>Please select an article name...</option>
             <option *ngFor="let article of articleList">{{article.name}}</option>
         </select> <br>
         <button type="submit" [disabled]="isButtonAddDisabled()" (click)="addNovelty()">Add new novelty</button>
@@ -18,8 +18,9 @@
     </select> <br>
     <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteNovelty()">Delete</button>
     <div *ngFor="let novelty of noveltyList">
-        <p><strong>Id:</strong> {{novelty.id}}, <strong>Name:</strong> {{novelty.name}} <strong>Category:</strong> {{novelty.category}} 
-            <strong>Brand:</strong> {{novelty.brand}} <strong>Description:</strong> {{novelty.description}} <strong>Price:</strong> {{novelty.price}}
+        <p><strong>Id:</strong> {{novelty.id}}, <strong>Name:</strong> {{novelty.name}} <strong>Category:</strong>
+            {{novelty.category}} <strong>Brand:</strong> {{novelty.brand}} <strong>Description:</strong>
+            {{novelty.description}} <strong>Price:</strong> {{novelty.price}}
             <strong>Image:</strong>{{novelty.imageUrl}} <strong>Stock:</strong> {{novelty.stockList}}
         </p>
     </div>
