@@ -15,5 +15,6 @@
     <br>
     <div class="container">
         <app-article-item class="item" *ngFor="let article of articleList" [article]="article"></app-article-item>
-      </div>
+    </div>
+    <p class="warning" *ngIf="isNoItem">There are not articles with that name</p>
 </div>

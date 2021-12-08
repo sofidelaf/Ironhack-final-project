@@ -13,10 +13,12 @@ export class SearchComponent implements OnInit {
   public contactForm: FormGroup;
   public searchText: FormControl;
   public articleList: Article[];
+  public isNoItem: boolean;
 
   constructor(private articleService: ArticleService) {
     this.articleList = [];
     this.searchText = new FormControl('', [Validators.required]);
+    this.isNoItem = false;
 
     this.contactForm = new FormGroup({
       searchText: this.searchText,
@@ -34,6 +36,11 @@ export class SearchComponent implements OnInit {
     this.articleService.getArticlesByNameLike(this.searchText.value).subscribe({
       next: dataResult => {
         this.articleList = dataResult;
+        if (this.articleList.length == 0) {
+          this.isNoItem = true;
+        } else {
+          this.isNoItem = false;
+        }
       }
       ,
       error: error => {

@@ -37,3 +37,8 @@ p {
     border-width: 0.2rem;
     padding: 0.2rem;
 }
+
+.warning {
+    font-size: 3rem;
+    color: red;  
+}
