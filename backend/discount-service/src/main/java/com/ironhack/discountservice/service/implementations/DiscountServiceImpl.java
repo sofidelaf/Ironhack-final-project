@@ -122,4 +122,35 @@ public class DiscountServiceImpl implements DiscountService {
         }
         discountRepository.delete(optionalDiscount.get());
     }
+
+    @Override
+    public DiscountOutputDTO findByArticleId(int articleId) {
+
+        Optional<DiscountEntity> optionalDiscount = discountRepository.findByArticleId(articleId);
+
+        if (!optionalDiscount.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Discount does not exist");
+        }
+
+        DiscountOutputDTO outputDiscount = new DiscountOutputDTO();
+        outputDiscount.setId(optionalDiscount.get().getId());
+        outputDiscount.setPromotion(optionalDiscount.get().getPromotion());
+        outputDiscount.setQuantity(optionalDiscount.get().getQuantity());
+        outputDiscount.setCategory(optionalDiscount.get().getArticle().getCategory().getType());
+        outputDiscount.setName(optionalDiscount.get().getArticle().getName());
+        outputDiscount.setBrand(optionalDiscount.get().getArticle().getBrand());
+        outputDiscount.setDescription(optionalDiscount.get().getArticle().getDescription());
+        outputDiscount.setImageUrl(optionalDiscount.get().getArticle().getImageUrl());
+        outputDiscount.setPrice(optionalDiscount.get().getArticle().getPrice());
+        List<StockDTO> stockDTOList = new ArrayList<>();
+        for (StockEntity stock : optionalDiscount.get().getArticle().getStockList()) {
+            StockDTO stockDTO = new StockDTO();
+            stockDTO.setSize(stock.getSize());
+            stockDTO.setUnits(stock.getUnits());
+            stockDTOList.add(stockDTO);
+        }
+        outputDiscount.setStockList(stockDTOList);
+
+        return outputDiscount;
+    }
 }

@@ -39,4 +39,12 @@ public class DiscountControllerImpl implements DiscountController {
 
         discountService.delete(id);
     }
+
+    @Override
+    @GetMapping("/discounts-by-article-id")
+    @ResponseStatus(HttpStatus.OK)
+    public DiscountOutputDTO findByArticleId(@RequestParam(name = "articleId") int articleId) {
+
+        return discountService.findByArticleId(articleId);
+    }
 }

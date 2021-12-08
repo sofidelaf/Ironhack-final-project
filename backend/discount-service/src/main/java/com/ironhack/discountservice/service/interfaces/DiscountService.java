@@ -10,4 +10,5 @@ public interface DiscountService {
     List<DiscountOutputDTO> getAll();
     DiscountOutputDTO store(DiscountInputDTO discountInputDTO);
     void delete(int id);
+    DiscountOutputDTO findByArticleId(int articleId);
 }
