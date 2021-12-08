@@ -376,7 +376,26 @@ class ArticleControllerImplTest {
     }
 
     @Test
-    void update_UnprocessedEntity_EmptyBody() throws Exception {
+    void delete_NotFound_ArticleNotExitsInDatabase() throws Exception {
+
+        mockMvc.perform(delete("/articles/0")
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void delete_NoContent_ArticleExitsInDatabase() throws Exception {
+
+        mockMvc.perform(delete("/articles/" + article.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isNoContent());
+        assertEquals(Optional.empty(), articleRepository.findById(article.getId()));
+    }
+
+    @Test
+    void updatePrice_UnprocessedEntity_EmptyBody() throws Exception {
 
         articleDTO.setPrice(null);
         String body = objectMapper.writeValueAsString(articleDTO);
@@ -388,7 +407,7 @@ class ArticleControllerImplTest {
     }
 
     @Test
-    void update_NoContent_ArticleToUpdate() throws Exception {
+    void updatePrice_NoContent_ArticleToUpdate() throws Exception {
 
         articleDTO.setPrice(BigDecimal.valueOf(2990));
         String body = objectMapper.writeValueAsString(articleDTO);

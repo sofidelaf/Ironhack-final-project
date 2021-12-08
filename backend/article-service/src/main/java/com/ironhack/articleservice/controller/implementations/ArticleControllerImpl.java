@@ -46,6 +46,14 @@ public class ArticleControllerImpl implements ArticleController {
     }
 
     @Override
+    @DeleteMapping("/articles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(name = "id") int id) {
+
+        articleService.delete(id);
+    }
+
+    @Override
     @PatchMapping("/articles/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePrice(@PathVariable(name = "id") int id, @RequestBody ArticleDTO articleDTO) {

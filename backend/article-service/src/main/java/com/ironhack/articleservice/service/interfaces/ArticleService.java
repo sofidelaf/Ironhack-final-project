@@ -11,5 +11,6 @@ public interface ArticleService {
     List<ArticleOutputDTO> getAll();
     List<ArticleOutputDTO> getAllByCategory(String category);
     List<ArticleOutputDTO> getByNameLike(String name);
+    void delete(int id);
     void updatePrice(int id, ArticleDTO articleDTO);
 }

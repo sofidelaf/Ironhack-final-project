@@ -191,6 +191,20 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public void delete(int id) {
+
+        Optional<ArticleEntity> optionalArticle = articleRepository.findById(id);
+
+        if (!optionalArticle.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Article does not exist");
+        }
+        for (StockEntity stock: optionalArticle.get().getStockList()) {
+            stockRepository.delete(stock);
+        }
+        articleRepository.delete(optionalArticle.get());
+    }
+
+    @Override
     public void updatePrice(int id, ArticleDTO articleDTO) {
 
         if (articleDTO.getPrice() == null) {
