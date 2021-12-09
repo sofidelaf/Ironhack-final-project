@@ -79,7 +79,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"Elec M30\" ,\n    \"category\" : \"electric bike\" ,\n    \"brand\" : \"Orbea\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"price\" : \"3199.00\",\n    \"size\" : \"M\" ,\n    \"units\" : \"1\" \n}",
+					"raw": "{\n    \"name\" : \"Test\" ,\n    \"category\" : \"electric bike\" ,\n    \"brand\" : \"Orbea\" ,\n    \"description\" : \"collection 2022\" ,\n    \"imageUrl\" : \"../image/berria_belador_6\" ,\n    \"price\" : \"3199.00\",\n    \"size\" : \"M\" ,\n    \"units\" : \"1\" \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -152,7 +152,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTkyODE3OX0.PkhSm_Dulprc0Ez23sA1JuPGlEq5PmcV4J0ox2y1PJfC8J9kAD2s3d_u7Z-BF0qKGyY3zmC6qneTiqzV0i8zmw",
 							"type": "string"
 						}
 					]
@@ -161,7 +161,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\" : \"1\"\n}",
+					"raw": "{\n    \"id\" : \"17\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -239,7 +239,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzODcwMDYzNH0.hj0kmvuyQBQCmT522Y5tGBkDjSa0m08GdvfhLUIJJX3OwyXq_HcsCyibRqDBL6NDUpLdu_P3lL4VsxifVfmGwQ",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTkyODE3OX0.PkhSm_Dulprc0Ez23sA1JuPGlEq5PmcV4J0ox2y1PJfC8J9kAD2s3d_u7Z-BF0qKGyY3zmC6qneTiqzV0i8zmw",
 							"type": "string"
 						}
 					]
@@ -248,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\" : \"2\" ,\n    \"promotion\" : \"Black Friday\" ,\n    \"quantity\" : \"5.00\"\n}",
+					"raw": "{\n    \"id\" : \"17\" ,\n    \"promotion\" : \"Black Friday\" ,\n    \"quantity\" : \"5.00\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -412,7 +412,7 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -433,6 +433,86 @@
 					"path": [
 						"articles",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Novelty By Article Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/novelties-by-article-id?articleId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"novelties-by-article-id"
+					],
+					"query": [
+						{
+							"key": "articleId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Discount By Article Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/discounts-by-article-id?articleId=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discounts-by-article-id"
+					],
+					"query": [
+						{
+							"key": "articleId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete article",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYzOTkyODE3OX0.PkhSm_Dulprc0Ez23sA1JuPGlEq5PmcV4J0ox2y1PJfC8J9kAD2s3d_u7Z-BF0qKGyY3zmC6qneTiqzV0i8zmw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/articles/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"17"
 					]
 				}
 			},

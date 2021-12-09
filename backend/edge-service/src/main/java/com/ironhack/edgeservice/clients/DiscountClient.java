@@ -18,4 +18,7 @@ public interface DiscountClient {
 
     @DeleteMapping("/discounts/{id}")
     void deleteDiscount(@PathVariable(name = "id") int id);
+
+    @GetMapping("/discounts-by-article-id")
+    DiscountOutputDTO findByArticleId(@RequestParam(name = "articleId") int articleId);
 }

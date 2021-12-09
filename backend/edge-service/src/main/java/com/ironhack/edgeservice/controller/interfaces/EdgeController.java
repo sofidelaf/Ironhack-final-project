@@ -11,6 +11,7 @@ public interface EdgeController {
     List<ArticleOutputDTO> getAllArticles(Optional<String> category);
     List<CategoryDTO> getAllCategories();
     List<ArticleOutputDTO> getByNameLike(String name);
+    void deleteArticle(int id);
     void updatePrice(int id, ArticleDTO articleDTO);
     CategoryDTO storeCategory(CategoryDTO categoryDTO);
     List<DiscountOutputDTO> getAllDiscounts();

@@ -46,6 +46,14 @@ public class EdgeControllerImpl implements EdgeController {
     }
 
     @Override
+    @DeleteMapping("/articles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteArticle(@PathVariable(name = "id") int id) {
+
+        edgeService.deleteArticle(id);
+    }
+
+    @Override
     @PatchMapping("/articles/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePrice(@PathVariable(name = "id") int id, @RequestBody ArticleDTO articleDTO) {

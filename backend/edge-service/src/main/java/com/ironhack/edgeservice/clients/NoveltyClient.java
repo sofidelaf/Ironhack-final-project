@@ -18,4 +18,7 @@ public interface NoveltyClient {
 
     @DeleteMapping("/novelties/{id}")
     void deleteNovelty(@PathVariable(name = "id") int id);
+
+    @GetMapping("/novelties-by-article-id")
+    NoveltyOutputDTO findByArticleId(@RequestParam(name = "articleId") int articleId);
 }

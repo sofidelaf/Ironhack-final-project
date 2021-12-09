@@ -5,11 +5,16 @@ import com.ironhack.edgeservice.clients.DiscountClient;
 import com.ironhack.edgeservice.clients.NoveltyClient;
 import com.ironhack.edgeservice.controller.dto.*;
 import com.ironhack.edgeservice.service.interfaces.EdgeService;
+import feign.FeignException;
+import feign.RetryableException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EdgeServiceImpl implements EdgeService {
@@ -22,6 +27,8 @@ public class EdgeServiceImpl implements EdgeService {
 
     @Autowired
     private NoveltyClient noveltyClient;
+
+    private final Logger logger = LoggerFactory.getLogger(EdgeServiceImpl.class);
 
     @Override
     public ArticleDTO storeArticle(ArticleDTO articleDTO) {
@@ -51,6 +58,46 @@ public class EdgeServiceImpl implements EdgeService {
     public List<ArticleOutputDTO> getByNameLike(String name) {
 
         return articleClient.getByNameLike(name);
+    }
+
+    @Override
+    public void deleteArticle(int id) {
+
+        try {
+            NoveltyOutputDTO noveltyOutputDTO = noveltyClient.findByArticleId(id);
+            try {
+                noveltyClient.deleteNovelty(noveltyOutputDTO.getId());
+            } catch (RetryableException | FeignException.ServiceUnavailable e1) {
+                logger.error(e1.getClass() + "");
+                throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Error in proxy service");
+            } catch (FeignException.NotFound e2) {
+                logger.info(e2.getClass() + "");
+            }
+        } catch (RetryableException | FeignException.ServiceUnavailable e1) {
+            logger.error(e1.getClass() + "");
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Error in proxy service");
+        } catch (FeignException.NotFound e2) {
+            logger.info(e2.getClass() + "" + " deleteArticle " + id + " without novelty");
+        }
+
+        try {
+            DiscountOutputDTO discountOutputDTO = discountClient.findByArticleId(id);
+            try {
+                discountClient.deleteDiscount(discountOutputDTO.getId());
+            } catch (RetryableException | FeignException.ServiceUnavailable e1) {
+                logger.error(e1.getClass() + "");
+                throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Error in proxy service");
+            } catch (FeignException.NotFound e2) {
+                logger.info(e2.getClass() + "");
+            }
+        } catch (RetryableException | FeignException.ServiceUnavailable e1) {
+            logger.error(e1.getClass() + "");
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Error in proxy service");
+        } catch (FeignException.NotFound e2) {
+            logger.info(e2.getClass() + "" + " deleteArticle " + id + " without discount");
+        }
+
+        articleClient.delete(id);
     }
 
     @Override
