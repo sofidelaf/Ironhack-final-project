@@ -1,7 +1,7 @@
 export class Stock {
 
     constructor(
-        private _articlesize: string,
+        private _size: string,
         private _units: number
     ){
 
@@ -13,11 +13,11 @@ export class Stock {
     public set units(value: number) {
         this._units = value;
     }
-    public get articlesize(): string {
-        return this._articlesize;
+    public get size(): string {
+        return this._size;
     }
-    public set articlesize(value: string) {
-        this._articlesize = value;
+    public set size(value: string) {
+        this._size = value;
     }
 
 }

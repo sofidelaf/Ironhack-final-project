@@ -21,7 +21,10 @@
         <p><strong>Id:</strong> {{novelty.id}}, <strong>Name:</strong> {{novelty.name}} <strong>Category:</strong>
             {{novelty.category}} <strong>Brand:</strong> {{novelty.brand}} <strong>Description:</strong>
             {{novelty.description}} <strong>Price:</strong> {{novelty.price}}
-            <strong>Image:</strong>{{novelty.imageUrl}} <strong>Stock:</strong> {{novelty.stockList}}
+            <strong>Image:</strong>{{novelty.imageUrl}} <strong>Stock:</strong> 
+            <span *ngFor="let stock of novelty.stockList">
+                size - {{stock.size}} , units - {{stock.units}}
+            </span>
         </p>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="submenu">
     <p class="header">Discounts Management</p><br>
-    <p>DIscount List:</p>
+    <p>Article List:</p>
     <p *ngFor="let article of articleList"><strong>Id:</strong> {{article.id}} , name: {{article.name}}</p>
     <div>
         <select [(ngModel)]="articleName" required name="item">
@@ -24,7 +24,10 @@
             {{discount.category}} <strong>Brand:</strong> {{discount.brand}} <strong>Description:</strong>
             {{discount.description}} <strong>Price:</strong> {{discount.price}} <strong>Discount:</strong>
             {{discount.quantity}}% <strong>Promotion:</strong> {{discount.promotion}}
-            <strong>Image:</strong>{{discount.imageUrl}} <strong>Stock:</strong> {{discount.stockList}}
+            <strong>Image:</strong>{{discount.imageUrl}} <strong>Stock:</strong>
+            <span *ngFor="let stock of discount.stockList">
+                size - {{stock.size}} , units - {{stock.units}}
+            </span>
         </p>
     </div>
 </div>

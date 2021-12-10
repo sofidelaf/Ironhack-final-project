@@ -64,7 +64,6 @@ export class ArticlesComponent implements OnInit {
     this.articleManagementService.getArticles().subscribe({
       next: dataResult => {
         this.articleList = dataResult;
-        console.log(dataResult);
       }
       ,
       error: error => {
