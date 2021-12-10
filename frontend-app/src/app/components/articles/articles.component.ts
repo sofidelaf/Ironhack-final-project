@@ -21,6 +21,7 @@ export class ArticlesComponent implements OnInit {
   price: number;
   size: string;
   units: number;
+  articleId: number;
 
   constructor(private articleManagementService: ArticlesManagementService,
     private categoriesManagementService: CategoriesManagementService) {
@@ -34,6 +35,7 @@ export class ArticlesComponent implements OnInit {
     this.price = 0;
     this.size = "";
     this.units = 0;
+    this.articleId = 0;
   }
 
   ngOnInit(): void {
@@ -86,6 +88,7 @@ export class ArticlesComponent implements OnInit {
         this.price = 0;
         this.size = "";
         this.units = 0;
+        this.articleId = 0;
       }
     ).catch(e => console.error("There was an error!", e));
   }
@@ -93,5 +96,18 @@ export class ArticlesComponent implements OnInit {
   isButtonDisabled(): boolean {
     return ((this.name == "") || (this.brand == "") || (this.description == "") || (this.imageurl == "")
       || (this.price == 0) || (this.size == "") || (this.units == 0))
+  }
+
+  deleteArticle() {
+    this.articleManagementService.deleteArticle(this.articleId).then(
+      result => {
+        this.getArticles();
+        this.articleId = 0;
+      }
+    ).catch(e => console.error("There was an error!", e));
+  }
+
+  isButtonDeleteDisabled(): boolean {
+    return (this.articleId == 0);
   }
 }

@@ -22,10 +22,18 @@
     <button type="submit" [disabled]="isButtonDisabled()" (click)="addArticle()">Add new article</button> <br><br>
 
     <p>Article List:</p>
+    <select [(ngModel)]="articleId" required name="articleId">
+        <option value="" selected>Please select a article id...</option>
+        <option *ngFor="let article of articleList">{{article.id}}</option>
+    </select> <br>
+    <button type="submit" [disabled]="isButtonDeleteDisabled()" (click)="deleteArticle()">Delete</button>
     <div *ngFor="let article of articleList">
         <p><strong>Id:</strong> {{article.id}} <strong>Name:</strong> {{article.name}} <strong>Category:</strong> {{article.category}} 
             <strong>Brand:</strong> {{article.brand}} <strong>Description:</strong> {{article.description}} <strong>Price:</strong>{{article.price}}
-            <strong>Image:</strong>{{article.imageUrl}} <strong>Stock:</strong> {{article.stockList}}
+            <strong>Image:</strong>{{article.imageUrl}} <strong>Stock:</strong> 
+            <span *ngFor="let stock of article.stockList">
+                size - {{stock.size}} , units - {{stock.units}}
+            </span>
         </p>
     </div>
 </div>

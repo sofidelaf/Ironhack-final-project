@@ -63,6 +63,18 @@ export class ArticlesManagementService {
   //     this.baseUrl + '/articles/' + id, body, {headers: this.authenticationService.createJwtHeader()});
   // }
 
+  async deleteArticle(number: number): Promise<any> {
+
+    try {
+      const response = await this.http.delete<any>(
+        this.baseUrl + '/articles' + '/' + number, { headers: this.authenticationService.createJwtHeader() }
+      ).toPromise();
+      return response as any;
+    } catch (error) {
+      return this.handleError(error);
+    }
+  }
+
   private handleError(error: any): Promise<any> {
     console.error("There was an error!", error);
     return Promise.reject(error.message || error);
