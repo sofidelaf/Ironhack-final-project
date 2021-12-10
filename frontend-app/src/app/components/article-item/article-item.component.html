@@ -1,9 +1,7 @@
 <div class="article-img"></div>
 <div class="article-body">
-  <p class="article-text">Id: {{article.id}}</p>
-  <p class="article-text">Name: {{article.name}}</p>
-  <p class="article-text">Brand: {{article.brand}}</p>
-  <p class="article-text">Description: {{article.description}}</p>
+  <p class="article-header"><strong>{{article.brand}}</strong> {{article.name}}</p>
+  <p class="article-text">{{article.description}}</p>
   <p class="article-text">Price: {{article.price}}€</p>
   <img [src]="article.imageUrl" class="image">
 </div>
