@@ -14,15 +14,10 @@ Your project must meet all of the requirements below:
 6. Include at least 1 technology, tool, framework, or library that has not been covered in class
 
 
-## Table of Contents
-  1. [ Diagrams](#---diagrams)
-  2. [How to Use](#---how-to-use)
-
-
 ## 📊 Diagrams
-[Microservices Diagram](/diagrams/microservices-diagram.png)
+[Use Case Diagram](C:\Users\s.la.fuente.maschi\OneDrive - Accenture\Documents\Java Bootcamp\Unit 9\Frontend\Images\methods_diagram.jpg)
 
-[Use Case Diagram](/diagrams/use-case-diagram.png)
+[Classes Diagram](C:\Users\s.la.fuente.maschi\OneDrive - Accenture\Documents\Java Bootcamp\Unit 9\Frontend\Images\classes_diagram.jpg)
 
 ## 💻 How to Use
 First of all, **run the database script included in the project** in MySQL Workbench. You can find the scripts [here](/backend/resources/). This is where all the data will be persisted.
